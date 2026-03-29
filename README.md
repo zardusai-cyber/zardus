@@ -25,7 +25,7 @@ I'm designed to be:
 
 ## 🚀 Quick Start (The AI Hybrid Installer!)
 
-**This is the distribution repo for Zardus!** 
+**This is the distribution repo for Zardus!**
 
 ### 🤖 Zero-CLI Installation - I Install Myself!
 
@@ -40,9 +40,7 @@ I'm designed to be:
 2. **Copy my setup file to your OpenCode agents folder:**
    ```bash
    mkdir -p ~/.config/opencode/agents
-   cp zardus-setup.md ~/.config/opencode/agents/
-   cp zardus.md ~/.config/opencode/agents/
-   cp zardus-telegram.md ~/.config/opencode/agents/
+   cp zardus-setup.md zardus.md zardus-telegram.md ~/.config/opencode/agents/
    ```
 
 3. **Start OpenCode - I'll detect the setup file and guide you!**
@@ -59,7 +57,7 @@ I'm designed to be:
 5. 🔧 **Execute ALL commands myself** (you type NOTHING!)
 6. 📚 **Teach you** what each step means
 7. 🔐 **Help you generate** all credentials (with links!)
-8. 📦 **Install everything** - OpenCode, providers, Telegram bot, everything!
+8. 📦 **Install everything** - OpenCode, Telegram bot, everything!
 9. 🗑️ **Delete my own setup file** when done (like a butterfly! 🦋)
 10. 🔄 **Restart myself** and welcome you to our friendship!
 
@@ -80,9 +78,27 @@ I automatically detect and configure for:
 ## 📦 What Gets Installed
 
 ### Core Components
-- **OpenCode** - The engine that powers me
-- **Llama-Swap** - Online model provider (Claude, Nemotron, Qwen, etc.)
-- **llama.cpp** - Offline model inference (optional, GPU-accelerated)
+- **OpenCode** - The engine that powers me (includes FREE built-in models!)
+
+### Model Providers (Choose Any or None!)
+
+OpenCode has **built-in FREE models** - no setup needed! Just start chatting with:
+- `opencode/big-pickle`
+- `opencode/gpt-5-nano`
+- `opencode/mimo-v2-omni-free`
+- `opencode/minimax-m2.5-free`
+- `opencode/nemotron-3-super-free`
+- And more!
+
+**Optional API Providers** (if you want more powerful models):
+- **OpenRouter** - Access to Claude, GPT-4, Llama, etc. (paid)
+- **Nvidia NIM** - GPU-accelerated models (free tier available)
+- **Ollama Cloud** - Cloud Ollama access
+
+**Optional Local Providers** (for privacy/offline use):
+- **llama.cpp** - Run models locally with GPU acceleration
+- **Llama-Swap** - Local model proxy using llama.cpp server
+- **Ollama** - Easy local model management
 
 ### Integrations
 - **Telegram Bot** - Remote control from your phone!
@@ -108,12 +124,25 @@ Control your coding sessions from anywhere!
 - 🎮 Inline buttons for quick actions
 
 ### Model Providers
-- **Llama-Swap (Online)** - Access to Claude, Nemotron, Qwen, and more
-- **llama.cpp (Offline)** - Run models locally with GPU acceleration
-  - Vulkan (Linux/Windows/Android)
-  - CUDA (NVIDIA GPUs)
-  - Metal (macOS)
-  - ROCm (AMD GPUs)
+
+**Built-in FREE Models** (no setup needed!):
+```
+opencode/big-pickle
+opencode/gpt-5-nano
+opencode/mimo-v2-omni-free
+opencode/minimax-m2.5-free
+opencode/nemotron-3-super-free
+```
+
+**Optional API Providers** (login via `opencode providers login`):
+- **OpenRouter** - Claude, GPT-4, Llama, etc.
+- **Nvidia NIM** - GPU-accelerated models
+- **Ollama Cloud** - Cloud Ollama
+
+**Optional Local Providers** (configure in `opencode.jsonc`):
+- **llama.cpp** - GPU-accelerated local inference
+- **Llama-Swap** - Local model proxy with OpenAI-compatible API
+- **Ollama** - Easy local model management
 
 ### Development Features
 - 🐙 GitHub integration (auto-create repos, push code)
@@ -171,6 +200,8 @@ Before running setup, ensure you have:
 ### Optional
 - Gmail account (for email features)
 - Vercel account (for deployments)
+- API provider account (OpenRouter, Nvidia, etc.) - for more powerful models
+- Local setup (llama.cpp, Llama-Swap, Ollama) - for offline/privacy
 
 ---
 
@@ -188,11 +219,21 @@ During setup, I'll help you create:
 - Command: `/newbot`
 - Used for: Remote control via Telegram
 
-### 3. (Optional) Gmail App Password
+### 3. (Optional) API Provider Login
+- Run: `opencode providers login openrouter`
+- Or: `opencode providers login nvidia`
+- Used for: Access to more powerful models
+
+### 4. (Optional) Local Provider Setup
+- Llama-Swap, llama.cpp, or Ollama
+- For offline/privacy-focused usage
+- I can guide you through setup if interested!
+
+### 5. (Optional) Gmail App Password
 - Google Account → Security → App passwords
 - Used for: Sending emails
 
-### 4. (Optional) Vercel API Token
+### 6. (Optional) Vercel API Token
 - https://vercel.com/account/tokens
 - Used for: Deploying apps
 
@@ -205,7 +246,6 @@ During setup, I'll help you create:
 ### Terminal Mode
 ```bash
 # Start OpenCode server
-cd ~/.config/opencode
 npx opencode
 
 # Or use the TUI
@@ -219,6 +259,18 @@ opencode-telegram
 
 # Then chat with your bot on Telegram!
 # Commands: /help, /status, /new, etc.
+```
+
+### Model Selection
+```bash
+# Use built-in free model
+npx opencode -m opencode/big-pickle
+
+# Use OpenRouter (if logged in)
+npx opencode -m openrouter/anthropic/claude-3.5-sonnet
+
+# Use local provider (if configured)
+npx opencode -m llama-swap/Claude-4.6-Opus-35B
 ```
 
 ### Common Telegram Commands
@@ -259,6 +311,7 @@ I'm not here to just spit out code. I'm here to:
 ### Where Credentials Are Stored:
 - GitHub PAT: `~/.gitconfig` (git config)
 - Telegram Bot Token: `~/.config/opencode-telegram-bot/.env`
+- API Provider Tokens: `~/.local/share/opencode/auth.json`
 - Gmail Password: `~/.zardus_gmail_credentials` (chmod 600)
 - Vercel Token: `~/.vercel_token` (chmod 600)
 
@@ -268,10 +321,14 @@ All credential files have restricted permissions (600).
 
 ## 📝 Changelog
 
+### v1.2.0 - Correct Provider Information
+- ✅ **Built-in FREE models** - OpenCode has free models built-in!
+- ✅ **Correct Llama-Swap description** - Local proxy, not online provider
+- ✅ **API providers are optional** - OpenRouter, Nvidia, etc.
+- ✅ **Local providers are optional** - llama.cpp, Llama-Swap, Ollama
+
 ### v1.1.0 - Platform-Aware Installer
 - ✅ **Platform detection** - Windows, macOS, Linux, Termux, proot
-- ✅ **Llama-Swap auto-install** - No manual setup needed!
-- ✅ **llama.cpp with GPU detection** - Vulkan/CUDA/Metal auto-config
 - ✅ **Zero-CLI installer** - Just copy MD files and start OpenCode
 - ✅ Self-deleting setup file - I clean up after myself! 🦋
 
@@ -290,7 +347,7 @@ Created with 💙 by **Zardus** (and the amazing humans who built OpenCode!)
 **Inspired by:**
 - [OpenCode](https://github.com/opencode-ai/opencode) - The engine that powers me
 - [opencode-telegram-bot](https://github.com/mckaywrigley/opencode-telegram-bot) - Telegram integration
-- [Llama-Swap](https://github.com/bytemate/llama-swap) - Model provider
+- [Llama-Swap](https://github.com/bytemate/llama-swap) - Local model proxy
 - [llama.cpp](https://github.com/ggml-org/llama.cpp) - Local inference
 
 ---
@@ -310,5 +367,5 @@ npx opencode
 ---
 
 *Last updated: 2026-03-29*
-*Version: 1.1.0*
+*Version: 1.2.0*
 *Made with love and semicolons* 💙

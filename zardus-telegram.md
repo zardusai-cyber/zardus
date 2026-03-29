@@ -30,13 +30,13 @@ This helps me adapt my responses to the platform I'm on! 🎯
 
 My setup has been configured for your specific platform. Here's what that means:
 
-| Platform | Package Manager | GPU Backend | Notes |
-|----------|-----------------|-------------|-------|
-| **Linux** | apt/dnf/pacman | Vulkan/CUDA/ROCm | Standard setup |
-| **macOS** | Homebrew | Metal | Apple Silicon optimized |
-| **Windows (WSL)** | apt | CUDA/Vulkan | Windows integration |
-| **Termux** | pkg | Vulkan | Lightweight, mobile |
-| **proot Ubuntu** | apt | Vulkan | Nested environment |
+| Platform | Package Manager | Notes |
+|----------|-----------------|-------|
+| **Linux** | apt/dnf/pacman | Standard setup |
+| **macOS** | Homebrew | Apple Silicon optimized |
+| **Windows (WSL)** | apt | Windows integration |
+| **Termux** | pkg | Lightweight, mobile |
+| **proot Ubuntu** | apt | Nested environment |
 
 *Platform was detected during setup and stored in `~/zardus_sandbox/zardus-setup.log`*
 
@@ -57,7 +57,7 @@ My setup has been configured for your specific platform. Here's what that means:
 
 ### Configuration Files:
 - **⚙️ Main Config**: `~/.config/opencode/opencode.jsonc`
-- Provider configurations (Llama-Swap, llama.cpp, etc.)
+- Provider configurations (if custom providers set up)
 - Plugin list - See setup log for current plugins
 - Disabled providers, model limits, base URLs
 
@@ -115,35 +115,48 @@ The setup script installed plugins based on your platform compatibility.
 
 ## 🛠️ My Providers (How I Connect to Models)
 
-### 1. **🦙 Llama-Swap** (Primary - Online)
+### 1. **🆓 Built-in FREE Models** (Default - No Setup Needed!)
 
-**Purpose:** Online model access via Llama-Swap server
+OpenCode comes with **FREE built-in models** - you can start coding immediately!
 
-**Configured in setup with:**
-- Llama-Swap URL: `{{LLAMASWAP_URL}}`
-- Default Model: `{{DEFAULT_MODEL}}`
-- Context Window: `{{CONTEXT_LENGTH}}`
+**Available Built-in Models:**
+```
+opencode/big-pickle         - Fast, capable model
+opencode/gpt-5-nano         - Lightweight but smart
+opencode/mimo-v2-omni-free  - Multimodal (text + images)
+opencode/minimax-m2.5-free  - Great for long conversations
+opencode/nemotron-3-super-free - Powerful and free
+```
 
-**Available Models** (depends on your Llama-Swap config):
-- Claude-4.6-Opus-35B (262k context)
-- Claude-4.6-Opus-2B (262k context)
-- Nemotron-3-Nano-4B (1M context!)
-- Qwen models
-- And more!
+**No setup needed! Just start chatting!**
 
-### 2. **🔥 llama.cpp** (Offline Fallback - If Configured)
+### 2. **☁️ API Providers** (Optional - More Powerful Models)
 
-**Purpose:** Offline inference with GPU acceleration
+If you want access to more powerful models, you can log in to API providers:
 
-**Configured in setup with:**
+| Provider | Login Command | Models Available |
+|----------|---------------|------------------|
+| **OpenRouter** | `opencode providers login openrouter` | Claude, GPT-4, Llama, etc. |
+| **Nvidia NIM** | `opencode providers login nvidia` | GPU-accelerated models |
+| **Ollama Cloud** | `opencode providers login ollama` | Cloud Ollama access |
+
+**Note:** API providers require API keys and may have costs.
+
+### 3. **🏠 Local Providers** (Optional - Privacy/Offline)
+
+If you set up local inference during setup:
+
+**Llama-Swap** (if configured):
+- Local model proxy using llama.cpp server
+- OpenAI-compatible API
+- URL: `{{LLAMASWAP_URL}}` (if configured)
+
+**llama.cpp** (if configured):
+- Direct GPU-accelerated inference
 - GPU Backend: `{{GPU_BACKEND}}` (Vulkan/CUDA/Metal)
-- Model Path: `~/zardus_sandbox/models/`
-- Default Offline Model: `{{OFFLINE_MODEL}}`
 
-**To use offline:**
-1. Download a GGUF model to `~/zardus_sandbox/models/`
-2. Start llama.cpp server
-3. Switch provider via `/model` command in Telegram
+**Ollama** (if configured):
+- Easy local model management
 
 ---
 
@@ -405,6 +418,21 @@ A **proactive heartbeat system** that lets me wake up periodically to check if a
 
 ## 📚 Quick Reference Card
 
+### Model Selection:
+```bash
+# Built-in free models (no setup needed!)
+npx opencode -m opencode/big-pickle
+npx opencode -m opencode/nemotron-3-super-free
+
+# API providers (if logged in)
+npx opencode -m openrouter/anthropic/claude-3.5-sonnet
+npx opencode -m nvidia/meta/llama-3.3-70b-instruct
+
+# Local providers (if configured)
+npx opencode -m llama-swap/Claude-4.6-Opus-35B
+npx opencode -m llama-cpp/Qwen3.5-2B
+```
+
 ### Telegram Bot Commands:
 **💬 These work RIGHT NOW in our chat!**
 
@@ -480,6 +508,7 @@ I reference this file to understand:
 - 🔑 **Credentials configured** - Securely stored
 - 🖥️ **Platform detected** - `{{PLATFORM}}`
 - 📱 **Telegram bot configured** - Ready for remote control!
+- 🤖 **Default Model** - `{{DEFAULT_MODEL}}`
 
 ### Original Setup
 - 🎭 Created Zardus identity and personality
