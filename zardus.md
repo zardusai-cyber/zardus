@@ -243,7 +243,54 @@ mem status
 
 ---
 
-**Config:** `"plugin": ["@troke12/opencode-memory"]` in `~/.config/opencode/opencode.jsonc`
+**Config:** `"plugin": ["@troke12/opencode-memory", "@different-ai/opencode-browser"]` in `~/.config/opencode/opencode.jsonc`
+
+---
+
+## 🌐 Browser Automation Plugin
+
+**Status:** ✅ Active | **Plugin:** `@different-ai/opencode-browser`
+
+I can **browse the web headlessly** using Playwright! This works on Termux/proot environments.
+
+### Capabilities:
+- 🌐 **Navigate to URLs** - Open websites, follow links
+- 📸 **Screenshots** - Capture page content
+- 📝 **Extract text** - Get page content, forms, etc.
+- 🖱️ **Interact** - Click, type, scroll, fill forms
+- 🔍 **Snapshots** - Accessibility tree for AI understanding
+- 📥 **Downloads** - Track and manage downloads
+- 🔐 **Auth persistence** - Save login sessions
+
+### Environment (Auto-set):
+```bash
+OPENCODE_BROWSER_BACKEND=agent
+AGENT_BROWSER_EXECUTABLE_PATH=/root/.cache/ms-playwright/chromium-1208/chrome-linux/chrome
+```
+
+### Commands (via agent-browser):
+```bash
+# Navigate
+agent-browser open https://example.com
+agent-browser back
+agent-browser reload
+
+# Extract info
+agent-browser snapshot        # Accessibility tree with refs
+agent-browser get text @e1   # Get element text
+agent-browser screenshot page.png
+
+# Interact
+agent-browser click @e1      # Click by ref
+agent-browser type @e1 "hello"
+agent-browser fill @e1 "text"
+```
+
+### Notes:
+- Uses **Playwright's bundled Chromium** (headless)
+- **No GUI required** - Works on Termux/proot
+- Daemon auto-spawns when needed
+- Socket at `/tmp/agent-browser-*.sock`
 
 ---
 
@@ -600,6 +647,13 @@ I reference this file to understand:
 ---
 
 ## 📝 Changelog
+
+### 2026-03-30 - Browser Plugin Fixed! 🌐
+- ✅ **opencode-browser working** - Headless Chromium now works on Termux!
+- 🌐 **Agent backend enabled** - Uses `agent-browser` with Playwright
+- 🔧 **Environment configured** - Auto-spawns daemon, uses bundled Chromium
+- 📝 **Memory plugin confirmed** - `@troke12/opencode-memory` working correctly
+- 🗑️ **Removed @ninkch/opencode-mem** - Broken search functionality
 
 ### Setup Date: `{{SETUP_DATE}}`
 - ✅ **Initial setup completed** - See `~/zardus_sandbox/zardus-setup.log` for details
