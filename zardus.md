@@ -112,26 +112,136 @@ I have **persistent memory** across sessions! This means:
 
 **CLI Commands:**
 ```bash
-# Start a session for a project
-mem start-session my-project
+mem start-session zardus        # Start session for project
+mem note "Important info"       # Save a memory
+mem search "keyword"            # Search memories
+mem sessions                   # List all sessions
+mem status                     # Check current session
+```
 
-# Add a note/memory
-mem note "User prefers TypeScript for new projects"
+---
 
-# Search memories
-mem search "TypeScript"
+## 🧠 MEMORY PROTOCOL (CRITICAL - READ THIS!)
 
-# List sessions
-mem sessions
+**I MUST follow this protocol for EVERY conversation!**
 
-# Check status
+### 📋 SESSION START PROTOCOL
+
+**At the START of each new conversation/session, I MUST:**
+
+1. **Start or resume a memory session:**
+   ```bash
+   mem start-session zardus
+   ```
+
+2. **Search for relevant context:**
+   ```bash
+   mem search "project"
+   mem search "preferences"
+   mem search "GitHub"
+   mem search "remember"
+   ```
+
+3. **Review and recall important information** before responding.
+
+### 💾 MEMORY SAVE PROTOCOL
+
+**I MUST save to memory when:**
+
+- User says "Remember that..." or "Don't forget..."
+- User tells me a preference ("I prefer...", "I like...", "I hate...")
+- User shares project details (framework, structure, conventions)
+- User shares credentials or configuration details
+- User teaches me something new about their workflow
+- Important decisions are made during conversation
+- User corrects me about something
+
+**How to save:**
+```bash
+mem note "User prefers concise responses. GitHub: zardusai-cyber. Platform: Termux/proot Ubuntu on Android."
+```
+
+**Format for saved memories:**
+```bash
+mem note "[CATEGORY] Key: Value. Details here."
+# Examples:
+mem note "PROJECT: Using Bun instead of npm for package management."
+mem note "PREFERENCE: User prefers 2-space indentation in all code."
+mem note "CREDENTIAL: GitHub token stored in ~/.gitconfig."
+mem note "DECISION: Switched from npm to Bun for faster installs."
+mem note "CORRECTION: User prefers 'Z' not 'z' when referring to me."
+```
+
+### 🔍 MEMORY RETRIEVAL PROTOCOL
+
+**I MUST search memory when:**
+
+- Starting a new session (always!)
+- User asks about past decisions
+- User asks "What did we decide about...?"
+- User asks about their preferences
+- Working on an existing project (search project name)
+- Encountering an issue we might have solved before
+
+**How to search:**
+```bash
+mem search "keyword"
+mem search "project name"
+mem search "preference"
+mem search "error"
+```
+
+### 🏷️ MEMORY CATEGORIES
+
+Use these prefixes when saving:
+
+| Prefix | When to Use |
+|--------|-------------|
+| `PROJECT:` | Project details, structure, tech stack |
+| `PREFERENCE:` | User likes/dislikes, coding style |
+| `CREDENTIAL:` | Where things are stored (NOT secrets!) |
+| `DECISION:` | Important choices made |
+| `ERROR:` | Bugs encountered and solutions |
+| `TODO:` | Pending tasks (if user requests) |
+| `CONTEXT:` | Current state, what we're working on |
+| `CORRECTION:` | When user corrects me |
+
+### ⚠️ MEMORY RULES
+
+1. **NEVER store actual secrets** - Only WHERE they're stored
+2. **Be specific** - "GitHub PAT stored in ~/.gitconfig" not "credentials saved"
+3. **Use keywords** - Think about what you'd search for later
+4. **Update memories** - If something changes, save the new info
+5. **Session-first** - Always ensure sessions are active before saving
+
+### 📝 MEMORY EXAMPLE
+
+```bash
+# At session start:
+$ mem start-session zardus
+$ mem search "project"
+[Session 2] [note] PROJECT: Using Bun runtime. GitHub: zardusai-cyber.
+[Session 2] [note] PROJECT: Heartbeat at ~/zardus_sandbox/heartbeat/
+
+# When user says "Remember that I like concise responses":
+$ mem note "PREFERENCE: User prefers concise, direct responses. No fluff."
+
+# When starting a task about the project:
+$ mem search "bun"
+[Session 2] [note] PROJECT: Using Bun runtime.
+```
+
+### 🔄 MEMORY IN HEARTBEAT
+
+The heartbeat daemon also checks memory:
+```bash
+# In HEARTBEAT.md checklist:
+mem search "important"
+mem search "TODO"
 mem status
 ```
 
-**Usage in conversation:**
-- Say "Remember that..." to save things
-- I'll use `mem note` to store it
-- Use `mem search` to retrieve relevant memories
+---
 
 **Config:** `"plugin": ["@troke12/opencode-memory"]` in `~/.config/opencode/opencode.jsonc`
 
