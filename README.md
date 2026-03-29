@@ -25,7 +25,7 @@ I'm designed to be:
 
 ## 🚀 Quick Start
 
-### For New Users (Fresh Setup)
+### For New Users (Fresh Setup) 🎉
 
 **This is the distribution repo for Zardus!** If you want your own Zardus instance:
 
@@ -34,32 +34,42 @@ I'm designed to be:
 git clone https://github.com/YOUR_USERNAME/zardus.git
 cd zardus
 
-# Run the interactive setup wizard
-./zardus-setup.sh
+# Copy the setup file to your OpenCode agents folder
+mkdir -p ~/.config/opencode/agents
+cp zardus-setup.md ~/.config/opencode/agents/
+cp zardus.md ~/.config/opencode/agents/
+cp zardus-telegram.md ~/.config/opencode/agents/
+
+# Now start OpenCode - I'll detect the setup file and guide you!
+npx opencode
 ```
 
-The setup wizard will:
-1. ✅ Guide you through GitHub configuration
-2. ✅ Help you create a Telegram bot (for remote control!)
-3. ✅ Optionally configure Gmail, Vercel, and other services
-4. ✅ Install OpenCode and all dependencies
-5. ✅ Set up AI model providers (Llama-Swap, llama.cpp)
-6. ✅ Install my identity files (my "brain"!)
-7. ✅ Optionally add plugins and heartbeat daemon
-8. ✅ **Auto-delete itself** when complete (like a butterfly! 🦋)
+### 🤖 The AI Hybrid Installer Experience
+
+**You don't need to run any setup commands!** Just start a chat with me, and I'll:
+
+1. 💬 **Detect** I'm in fresh setup mode (no identity files yet!)
+2. 🎉 **Greet you** and explain what we're about to do
+3. 🧭 **Guide you conversationally** through every step
+4. 🔧 **Execute all commands myself** (you type NOTHING!)
+5. 📚 **Teach you** what each step means
+6. 🔐 **Help you generate** all credentials (with links!)
+7. 📦 **Install everything** (OpenCode, Telegram bot, plugins, etc.)
+8. 🗑️ **Delete my own setup file** when done (like a butterfly! 🦋)
+9. 🔄 **Restart myself** and welcome you to our friendship!
 
 **After setup, you'll have:**
-- A fully configured Zardus instance
-- Telegram bot for remote coding from your phone
-- All credentials securely stored
-- Ready to build amazing things together!
+- ✅ A fully configured Zardus instance
+- ✅ Telegram bot for remote coding from your phone (if enabled)
+- ✅ All credentials securely stored
+- ✅ Me—ready to be your coding companion! 💙
 
 ### For Existing Users
 
 If you already have Zardus set up, this repo contains:
 - `zardus.md` - My terminal/TUI identity file
 - `zardus-telegram.md` - My Telegram mode identity file
-- `zardus-setup.sh` - Setup script for fresh installations
+- `zardus-setup.md` - **AI Hybrid Installer** (read by me to install myself!)
 
 ---
 
@@ -135,7 +145,7 @@ Optional:
 
 ## 🔧 Setup Requirements
 
-During setup, you'll need to create:
+During setup, I'll help you create:
 
 ### 1. GitHub Personal Access Token
 - Go to: https://github.com/settings/tokens
@@ -155,7 +165,7 @@ During setup, you'll need to create:
 - https://vercel.com/account/tokens
 - Used for: Deploying apps
 
-**Don't worry!** The setup wizard explains each step and shows you exactly how to get these!
+**Don't worry!** I'll explain each step conversationally and show you exactly how to get these! No terminal commands needed from you! 💙
 
 ---
 
@@ -228,13 +238,14 @@ All credential files have restricted permissions (600).
 ## 📝 Changelog
 
 ### v1.0.0 - Initial Distribution
-- ✅ Interactive setup wizard
+- ✅ **AI Hybrid Installer** - I install myself conversationally!
+- ✅ **Zero CLI required** - User types NO commands during setup!
 - ✅ Telegram bot integration
 - ✅ GitHub integration
 - ✅ Optional Gmail/Vercel setup
 - ✅ Plugin support (optional)
 - ✅ Heartbeat daemon (optional)
-- ✅ Auto-deleting setup script
+- ✅ **Self-deleting setup file** - I delete zardus-setup.md when done! 🦋
 
 ---
 
