@@ -107,11 +107,11 @@ OpenCode has **built-in FREE models** - no setup needed! Just start chatting wit
 - **Vercel** (optional) - App deployment
 
 ### Optional Plugins
-- 🧠 **@ninkch/opencode-mem** - Persistent local memory (RECOMMENDED!)
-  - 100% offline, no API keys required
-  - Semantic search across conversations
-  - Cross-session memory retention
+- 🧠 **@troke12/opencode-memory** - Persistent memory (RECOMMENDED!)
+  - Lightweight SQLite backend
+  - Keyword search across sessions
   - Works great on Termux/proot!
+  - Simple CLI: `mem note`, `mem search`, `mem sessions`
 - 🔄 **opencode-dcp** - Dynamic context pruning
 - 💓 **Heartbeat daemon** - Proactive check-ins
 
@@ -283,34 +283,46 @@ Give me persistent memory across sessions! 💾
 
 ```bash
 # Install the memory plugin
-npm install -g @ninkch/opencode-mem
-npx @ninkch/opencode-mem install
-npx @ninkch/opencode-mem init
+npm install -g @troke12/opencode-memory
 
-# Restart OpenCode to activate
-npx opencode -c
+# Or install in OpenCode config
+cd ~/.config/opencode
+npm install @troke12/opencode-memory
 ```
 
 **Features:**
 - 🧠 Remembers across sessions and projects
-- 🔍 Semantic search (find memories naturally)
-- 🌐 100% offline, no API keys
-- 🗣️ Supports 100+ languages
+- 🔍 Keyword search to find relevant context
+- 💾 Lightweight SQLite database
+- ⚡ Fast, no heavy model downloads
+- ✅ Works on Termux/proot!
 
 **Usage:**
-```
-User: Remember that this project uses bun instead of npm
-Agent: [Automatically saves to memory]
-
-User: What package manager does this project use?
-Agent: [Retrieves from memory] This project uses Bun!
-```
-
-**CLI Commands:**
 ```bash
-npx @ninkch/opencode-mem memories list    # List memories
-npx @ninkch/opencode-mem memories search "api"  # Search
-npx @ninkch/opencode-mem status          # Check status
+# Start a session for your project
+mem start-session my-project
+
+# Add a memory
+mem note "This project uses Bun instead of npm"
+
+# Search memories
+mem search "package manager"
+
+# List all sessions
+mem sessions
+
+# Check current status
+mem status
+```
+
+**In conversation:**
+```
+User: Remember that this project uses bun
+Agent: [Stores with: mem note "Project uses bun"]
+
+User: What package manager?
+Agent: [Retrieves with: mem search "package manager"]
+       Based on memory: This project uses Bun!
 ```
 
 ### Common Telegram Commands
@@ -362,10 +374,10 @@ All credential files have restricted permissions (600).
 ## 📝 Changelog
 
 ### v1.3.0 - Memory Plugin Integration
-- ✅ **@ninkch/opencode-mem** - Persistent local memory plugin
-- ✅ **100% offline** - No API keys required
+- ✅ **@troke12/opencode-memory** - Lightweight SQLite memory plugin
+- ✅ **Keyword search** - Find memories across sessions
 - ✅ **Termux/proot compatible** - Works on mobile!
-- ✅ **Semantic search** - Find memories naturally
+- ✅ **Lightweight** - Fast, no heavy model downloads
 
 ### v1.2.0 - Correct Provider Information
 - ✅ **Built-in FREE models** - OpenCode has free models built-in!

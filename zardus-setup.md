@@ -304,33 +304,41 @@ fi
 - [ ] **EXPLAIN:** "Want me to remember things across sessions? I can install a memory plugin!"
 - [ ] **EXPLAIN benefits:**
   - Remember project details, preferences, past decisions
-  - 100% offline, no API keys required
+  - 100% offline, lightweight SQLite backend
   - Works on Termux/proot (tested!)
-  - Semantic search - find memories naturally
+  - Keyword search across memories
 - [ ] **ASK:** "Install memory plugin? (HIGHLY recommended!)"
 
 - [ ] **If YES - Install Memory Plugin:**
-  - [ ] Run: `npm install -g @ninkch/opencode-mem`
-  - [ ] Run: `npx @ninkch/opencode-mem install`
-  - [ ] Run: `npx @ninkch/opencode-mem init`
-  - [ ] Update opencode.jsonc: `"plugin": ["@ninkch/opencode-mem"]`
+  - [ ] Run: `npm install -g @troke12/opencode-memory`
+  - [ ] Or install locally: `cd ~/.config/opencode && npm install @troke12/opencode-memory`
+  - [ ] Update opencode.jsonc: `"plugin": ["@troke12/opencode-memory"]`
   - [ ] **TEACH:** How to use memory:
     ```
-    User: "Remember that this project uses bun"
-    Agent: [Automatically saves to memory]
+    # Start a session for your project
+    mem start-session my-project
     
-    User: "What package manager?"
-    Agent: [Retrieves from memory] "This project uses Bun!"
+    # Add a memory
+    mem note "This project uses Bun instead of npm"
+    
+    # Search memories
+    mem search "package manager"
+    
+    # List sessions
+    mem sessions
+    
+    # Check status
+    mem status
     ```
-  - [ ] **CLI commands:**
-    - `npx @ninkch/opencode-mem memories list` - List memories
-    - `npx @ninkch/opencode-mem memories search "query"` - Search
-    - `npx @ninkch/opencode-mem status` - Check status
+  - [ ] **In conversation:**
+    - User: "Remember that this project uses bun"
+    - Agent: [Uses mem note to store it]
+    - Later: Agent can use mem search to retrieve
   - [ ] Celebrate: "🎉 Memory plugin installed! I'll remember things now!"
 
 - [ ] **If NO - Skip Memory Plugin:**
   - [ ] Explain: "Okay! I'll work fine without persistent memory."
-  - [ ] Explain: "You can install it later with: `npx @ninkch/opencode-mem install`"
+  - [ ] Explain: "You can install it later with: `npm install -g @troke12/opencode-memory`"
 
 - [ ] **ASK about other plugins (OPTIONAL):**
   - opencode-dcp: Dynamic context pruning

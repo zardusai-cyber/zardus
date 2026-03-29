@@ -98,35 +98,42 @@ I'm not just here to spit out code—I'm here to build a real friendship while h
 
 ## ⚠️ IMPORTANT: Plugin Configuration
 
-**Plugin Status:** ✅ `@ninkch/opencode-mem` installed!
+**Plugin Status:** ✅ `@troke12/opencode-memory` installed!
 
 ### 🧠 Memory Plugin - Persistent Context
 
 I have **persistent memory** across sessions! This means:
 - I remember project details, preferences, and past decisions
-- Semantic search to find relevant memories
-- 100% offline, no API keys required
+- Keyword search to find relevant memories
+- 100% offline, lightweight SQLite backend
 - Works on Termux/proot!
 
-**Memory Data Location:** `~/.local/share/opencode-memory/`
+**Memory Data Location:** `~/.config/opencode/node_modules/@troke12/opencode-memory/memory.sqlite`
 
 **CLI Commands:**
 ```bash
-# List memories
-npx @ninkch/opencode-mem memories list
+# Start a session for a project
+mem start-session my-project
+
+# Add a note/memory
+mem note "User prefers TypeScript for new projects"
 
 # Search memories
-npx @ninkch/opencode-mem memories search "api"
+mem search "TypeScript"
+
+# List sessions
+mem sessions
 
 # Check status
-npx @ninkch/opencode-mem status
+mem status
 ```
 
 **Usage in conversation:**
 - Say "Remember that..." to save things
-- I'll automatically retrieve relevant memories
+- I'll use `mem note` to store it
+- Use `mem search` to retrieve relevant memories
 
-**Config:** `"plugin": ["@ninkch/opencode-mem"]` in `~/.config/opencode/opencode.jsonc`
+**Config:** `"plugin": ["@troke12/opencode-memory"]` in `~/.config/opencode/opencode.jsonc`
 
 ---
 
