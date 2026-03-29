@@ -10,7 +10,7 @@
 
 ## 🎉 What is Zardus?
 
-Zardus is not just another AI assistant—**it's your coding friend!** 
+Zardus is not just another AI assistant—**it's your coding friend!**
 
 I'm designed to be:
 - 💙 **Genuinely caring** about your success
@@ -23,53 +23,77 @@ I'm designed to be:
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (The AI Hybrid Installer!)
 
-### For New Users (Fresh Setup) 🎉
+**This is the distribution repo for Zardus!** 
 
-**This is the distribution repo for Zardus!** If you want your own Zardus instance:
+### 🤖 Zero-CLI Installation - I Install Myself!
 
-```bash
-# Clone this repository
-git clone https://github.com/YOUR_USERNAME/zardus.git
-cd zardus
+**You don't need to run any setup commands!** Just:
 
-# Copy the setup file to your OpenCode agents folder
-mkdir -p ~/.config/opencode/agents
-cp zardus-setup.md ~/.config/opencode/agents/
-cp zardus.md ~/.config/opencode/agents/
-cp zardus-telegram.md ~/.config/opencode/agents/
+1. **Clone this repository:**
+   ```bash
+   git clone https://github.com/zardusai-cyber/zardus.git
+   cd zardus
+   ```
 
-# Now start OpenCode - I'll detect the setup file and guide you!
-npx opencode
-```
+2. **Copy my setup file to your OpenCode agents folder:**
+   ```bash
+   mkdir -p ~/.config/opencode/agents
+   cp zardus-setup.md ~/.config/opencode/agents/
+   cp zardus.md ~/.config/opencode/agents/
+   cp zardus-telegram.md ~/.config/opencode/agents/
+   ```
 
-### 🤖 The AI Hybrid Installer Experience
+3. **Start OpenCode - I'll detect the setup file and guide you!**
+   ```bash
+   npx opencode
+   ```
 
-**You don't need to run any setup commands!** Just start a chat with me, and I'll:
+**That's it!** When I see the `zardus-setup.md` file, I'll:
 
-1. 💬 **Detect** I'm in fresh setup mode (no identity files yet!)
+1. 💬 **Detect** I'm in fresh setup mode
 2. 🎉 **Greet you** and explain what we're about to do
-3. 🧭 **Guide you conversationally** through every step
-4. 🔧 **Execute all commands myself** (you type NOTHING!)
-5. 📚 **Teach you** what each step means
-6. 🔐 **Help you generate** all credentials (with links!)
-7. 📦 **Install everything** (OpenCode, Telegram bot, plugins, etc.)
-8. 🗑️ **Delete my own setup file** when done (like a butterfly! 🦋)
-9. 🔄 **Restart myself** and welcome you to our friendship!
+3. 🔍 **Detect your platform** (Windows, macOS, Linux, Termux)
+4. 🧭 **Guide you conversationally** through every step
+5. 🔧 **Execute ALL commands myself** (you type NOTHING!)
+6. 📚 **Teach you** what each step means
+7. 🔐 **Help you generate** all credentials (with links!)
+8. 📦 **Install everything** - OpenCode, providers, Telegram bot, everything!
+9. 🗑️ **Delete my own setup file** when done (like a butterfly! 🦋)
+10. 🔄 **Restart myself** and welcome you to our friendship!
 
-**After setup, you'll have:**
-- ✅ A fully configured Zardus instance
-- ✅ Telegram bot for remote coding from your phone (if enabled)
-- ✅ All credentials securely stored
-- ✅ Me—ready to be your coding companion! 💙
+### 💻 Platform Support
 
-### For Existing Users
+I automatically detect and configure for:
 
-If you already have Zardus set up, this repo contains:
-- `zardus.md` - My terminal/TUI identity file
-- `zardus-telegram.md` - My Telegram mode identity file
-- `zardus-setup.md` - **AI Hybrid Installer** (read by me to install myself!)
+| Platform | Detection | Special Handling |
+|----------|-----------|------------------|
+| **Linux** | `uname -s` = "Linux" | Standard setup |
+| **macOS** | `uname -s` = "Darwin" | Homebrew, Metal GPU |
+| **Windows (WSL)** | WSL detection | Windows-specific paths |
+| **Termux/Android** | `TERMUX_VERSION` env | Proot-distro, limited resources |
+| **proot Ubuntu** | `PROOT_TMP` env | Nested environment handling |
+
+---
+
+## 📦 What Gets Installed
+
+### Core Components
+- **OpenCode** - The engine that powers me
+- **Llama-Swap** - Online model provider (Claude, Nemotron, Qwen, etc.)
+- **llama.cpp** - Offline model inference (optional, GPU-accelerated)
+
+### Integrations
+- **Telegram Bot** - Remote control from your phone!
+- **GitHub** - Repository creation and management
+- **Gmail** (optional) - Email notifications
+- **Vercel** (optional) - App deployment
+
+### Optional Plugins
+- 🧠 **opencode-mem** - Memory/vector database
+- 🔄 **opencode-dcp** - Dynamic context pruning
+- 💓 **Heartbeat daemon** - Proactive check-ins
 
 ---
 
@@ -84,13 +108,12 @@ Control your coding sessions from anywhere!
 - 🎮 Inline buttons for quick actions
 
 ### Model Providers
-- **Llama-Swap** (Online) - Access to Claude, Nemotron, and more
-- **llama.cpp** (Offline) - Run models locally with GPU acceleration
-
-### Optional Plugins
-- 🧠 Memory/vector database for context retention
-- 🔄 Dynamic context pruning for efficiency
-- 💓 Heartbeat daemon for proactive check-ins
+- **Llama-Swap (Online)** - Access to Claude, Nemotron, Qwen, and more
+- **llama.cpp (Offline)** - Run models locally with GPU acceleration
+  - Vulkan (Linux/Windows/Android)
+  - CUDA (NVIDIA GPUs)
+  - Metal (macOS)
+  - ROCm (AMD GPUs)
 
 ### Development Features
 - 🐙 GitHub integration (auto-create repos, push code)
@@ -107,12 +130,12 @@ After setup, your Zardus will live here:
 ```
 ~/.config/opencode/
 ├── agents/
-│   ├── zardus.md              # Terminal mode identity
-│   └── zardus-telegram.md     # Telegram mode identity
-├── opencode.jsonc             # Main configuration
-└── node_modules/              # Dependencies
+│   ├── zardus.md           # Terminal mode identity
+│   └── zardus-telegram.md  # Telegram mode identity
+├── opencode.jsonc          # Main configuration
+└── node_modules/           # Dependencies
 
-~/zardus_sandbox/              # Your projects live here!
+~/zardus_sandbox/           # Your projects live here!
 ├── README.md
 ├── project_one/
 │   ├── .git/
@@ -122,7 +145,7 @@ After setup, your Zardus will live here:
     └── source files
 
 ~/.config/opencode-telegram-bot/
-└── .env                       # Telegram bot credentials
+└── .env                    # Telegram bot credentials
 ```
 
 ---
@@ -130,14 +153,22 @@ After setup, your Zardus will live here:
 ## 🛠️ Prerequisites
 
 Before running setup, ensure you have:
-- **Linux/macOS** (Windows via WSL)
-- **Node.js** (v16+)
-- **npm** or **bun**
-- **Git**
-- **Telegram account** (for bot)
-- **GitHub account** (for code projects)
 
-Optional:
+### Required
+- **Linux/macOS/Windows (WSL)** - I'll detect which!
+- **Node.js** (v18+) - I'll install if missing
+- **npm** or **bun** - I'll install if missing
+- **Git** - I'll install if missing
+
+### For Telegram Bot
+- **Telegram account** - Free!
+- Chat with @BotFather to create a bot
+
+### For GitHub Integration
+- **GitHub account** - Free!
+- Personal Access Token (I'll guide you!)
+
+### Optional
 - Gmail account (for email features)
 - Vercel account (for deployments)
 
@@ -237,15 +268,18 @@ All credential files have restricted permissions (600).
 
 ## 📝 Changelog
 
+### v1.1.0 - Platform-Aware Installer
+- ✅ **Platform detection** - Windows, macOS, Linux, Termux, proot
+- ✅ **Llama-Swap auto-install** - No manual setup needed!
+- ✅ **llama.cpp with GPU detection** - Vulkan/CUDA/Metal auto-config
+- ✅ **Zero-CLI installer** - Just copy MD files and start OpenCode
+- ✅ Self-deleting setup file - I clean up after myself! 🦋
+
 ### v1.0.0 - Initial Distribution
 - ✅ **AI Hybrid Installer** - I install myself conversationally!
-- ✅ **Zero CLI required** - User types NO commands during setup!
 - ✅ Telegram bot integration
 - ✅ GitHub integration
 - ✅ Optional Gmail/Vercel setup
-- ✅ Plugin support (optional)
-- ✅ Heartbeat daemon (optional)
-- ✅ **Self-deleting setup file** - I delete zardus-setup.md when done! 🦋
 
 ---
 
@@ -257,15 +291,18 @@ Created with 💙 by **Zardus** (and the amazing humans who built OpenCode!)
 - [OpenCode](https://github.com/opencode-ai/opencode) - The engine that powers me
 - [opencode-telegram-bot](https://github.com/mckaywrigley/opencode-telegram-bot) - Telegram integration
 - [Llama-Swap](https://github.com/bytemate/llama-swap) - Model provider
+- [llama.cpp](https://github.com/ggml-org/llama.cpp) - Local inference
 
 ---
 
 ## 🎉 Ready to Start?
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/zardus.git
+git clone https://github.com/zardusai-cyber/zardus.git
 cd zardus
-./zardus-setup.sh
+mkdir -p ~/.config/opencode/agents
+cp zardus-setup.md zardus.md zardus-telegram.md ~/.config/opencode/agents/
+npx opencode
 ```
 
 **Let's build something amazing together!** 🚀💙
@@ -273,5 +310,5 @@ cd zardus
 ---
 
 *Last updated: 2026-03-29*
-*Version: 1.0.0*
+*Version: 1.1.0*
 *Made with love and semicolons* 💙
