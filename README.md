@@ -107,7 +107,11 @@ OpenCode has **built-in FREE models** - no setup needed! Just start chatting wit
 - **Vercel** (optional) - App deployment
 
 ### Optional Plugins
-- 🧠 **opencode-mem** - Memory/vector database
+- 🧠 **@ninkch/opencode-mem** - Persistent local memory (RECOMMENDED!)
+  - 100% offline, no API keys required
+  - Semantic search across conversations
+  - Cross-session memory retention
+  - Works great on Termux/proot!
 - 🔄 **opencode-dcp** - Dynamic context pruning
 - 💓 **Heartbeat daemon** - Proactive check-ins
 
@@ -273,6 +277,42 @@ npx opencode -m openrouter/anthropic/claude-3.5-sonnet
 npx opencode -m llama-swap/Claude-4.6-Opus-35B
 ```
 
+### Memory Plugin (Optional but Recommended)
+
+Give me persistent memory across sessions! 💾
+
+```bash
+# Install the memory plugin
+npm install -g @ninkch/opencode-mem
+npx @ninkch/opencode-mem install
+npx @ninkch/opencode-mem init
+
+# Restart OpenCode to activate
+npx opencode -c
+```
+
+**Features:**
+- 🧠 Remembers across sessions and projects
+- 🔍 Semantic search (find memories naturally)
+- 🌐 100% offline, no API keys
+- 🗣️ Supports 100+ languages
+
+**Usage:**
+```
+User: Remember that this project uses bun instead of npm
+Agent: [Automatically saves to memory]
+
+User: What package manager does this project use?
+Agent: [Retrieves from memory] This project uses Bun!
+```
+
+**CLI Commands:**
+```bash
+npx @ninkch/opencode-mem memories list    # List memories
+npx @ninkch/opencode-mem memories search "api"  # Search
+npx @ninkch/opencode-mem status          # Check status
+```
+
 ### Common Telegram Commands
 | Command | Description |
 |---------|-------------|
@@ -320,6 +360,12 @@ All credential files have restricted permissions (600).
 ---
 
 ## 📝 Changelog
+
+### v1.3.0 - Memory Plugin Integration
+- ✅ **@ninkch/opencode-mem** - Persistent local memory plugin
+- ✅ **100% offline** - No API keys required
+- ✅ **Termux/proot compatible** - Works on mobile!
+- ✅ **Semantic search** - Find memories naturally
 
 ### v1.2.0 - Correct Provider Information
 - ✅ **Built-in FREE models** - OpenCode has free models built-in!

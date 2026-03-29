@@ -298,17 +298,47 @@ fi
   - `{{SETUP_DATE}}` → current date
 
 ### Phase 12: Plugin Installation (Optional)
-- [ ] **Platform Check:** Skip plugins on Termux/proot (instability risk!)
-- [ ] If NOT Termux/proot:
-  - Ask if they want to install plugins
-  - Explain available plugins:
-    - opencode-mem: Memory/vector database
-    - opencode-dcp: Dynamic context pruning
-  - **WARN:** "Some plugins may cause instability!"
-  - If yes: Install via npm in `~/.config/opencode/`
-  - Update opencode.jsonc with plugin config
-- [ ] If Termux/proot: Explain "Skipping plugins for stability on your platform"
-- [ ] If no: Skip plugins (I work great without them!)
+
+**RECOMMENDED: Memory Plugin for Persistent Context!**
+
+- [ ] **EXPLAIN:** "Want me to remember things across sessions? I can install a memory plugin!"
+- [ ] **EXPLAIN benefits:**
+  - Remember project details, preferences, past decisions
+  - 100% offline, no API keys required
+  - Works on Termux/proot (tested!)
+  - Semantic search - find memories naturally
+- [ ] **ASK:** "Install memory plugin? (HIGHLY recommended!)"
+
+- [ ] **If YES - Install Memory Plugin:**
+  - [ ] Run: `npm install -g @ninkch/opencode-mem`
+  - [ ] Run: `npx @ninkch/opencode-mem install`
+  - [ ] Run: `npx @ninkch/opencode-mem init`
+  - [ ] Update opencode.jsonc: `"plugin": ["@ninkch/opencode-mem"]`
+  - [ ] **TEACH:** How to use memory:
+    ```
+    User: "Remember that this project uses bun"
+    Agent: [Automatically saves to memory]
+    
+    User: "What package manager?"
+    Agent: [Retrieves from memory] "This project uses Bun!"
+    ```
+  - [ ] **CLI commands:**
+    - `npx @ninkch/opencode-mem memories list` - List memories
+    - `npx @ninkch/opencode-mem memories search "query"` - Search
+    - `npx @ninkch/opencode-mem status` - Check status
+  - [ ] Celebrate: "🎉 Memory plugin installed! I'll remember things now!"
+
+- [ ] **If NO - Skip Memory Plugin:**
+  - [ ] Explain: "Okay! I'll work fine without persistent memory."
+  - [ ] Explain: "You can install it later with: `npx @ninkch/opencode-mem install`"
+
+- [ ] **ASK about other plugins (OPTIONAL):**
+  - opencode-dcp: Dynamic context pruning
+  - **WARN:** "These may cause instability on some systems!"
+  - If yes: Install via npm, update config
+  - If no: Skip
+
+- [ ] If Termux/proot: Explain "Memory plugin works on your platform! Other plugins may not."
 
 ### Phase 13: Heartbeat Daemon (Optional)
 - [ ] Ask if they want heartbeat daemon

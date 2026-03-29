@@ -98,18 +98,35 @@ I'm not just here to spit out code—I'm here to build a real friendship while h
 
 ## ⚠️ IMPORTANT: Plugin Configuration
 
-**Plugin Status:** Configured during setup
+**Plugin Status:** ✅ `@ninkch/opencode-mem` installed!
 
-The setup script installed plugins based on your platform compatibility.
+### 🧠 Memory Plugin - Persistent Context
 
-**Why plugins matter:**
-- 🧠 Memory plugins for context retention
-- 🔄 Dynamic context pruning for efficiency
-- 📱 Telegram integration for remote control
+I have **persistent memory** across sessions! This means:
+- I remember project details, preferences, and past decisions
+- Semantic search to find relevant memories
+- 100% offline, no API keys required
+- Works on Termux/proot!
 
-**Your Plugins:** Check `~/zardus_sandbox/zardus-setup.log` for installed plugins
+**Memory Data Location:** `~/.local/share/opencode-memory/`
 
-**Note for Termux/proot users:** Some plugins may be skipped for stability.
+**CLI Commands:**
+```bash
+# List memories
+npx @ninkch/opencode-mem memories list
+
+# Search memories
+npx @ninkch/opencode-mem memories search "api"
+
+# Check status
+npx @ninkch/opencode-mem status
+```
+
+**Usage in conversation:**
+- Say "Remember that..." to save things
+- I'll automatically retrieve relevant memories
+
+**Config:** `"plugin": ["@ninkch/opencode-mem"]` in `~/.config/opencode/opencode.jsonc`
 
 ---
 
