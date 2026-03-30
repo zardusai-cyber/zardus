@@ -340,13 +340,49 @@ fi
   - [ ] Explain: "Okay! I'll work fine without persistent memory."
   - [ ] Explain: "You can install it later with: `npm install -g @troke12/opencode-memory`"
 
-- [ ] **ASK about other plugins (OPTIONAL):**
-  - opencode-dcp: Dynamic context pruning
-  - **WARN:** "These may cause instability on some systems!"
-  - If yes: Install via npm, update config
-  - If no: Skip
+- [ ] **ASK about Browser Plugin (OPTIONAL but POWERFUL!):**
+  - [ ] **EXPLAIN:** "I can also control your Chrome browser! This lets me access websites on your behalf!"
+  - [ ] **EXPLAIN how it works:**
+    - You start Chrome with remote debugging enabled
+    - I connect via CDP (Chrome DevTools Protocol)
+    - I use YOUR Chrome session = instant access to ALL your accounts!
+  - [ ] **EXPLAIN OAuth hub:**
+    ```
+    Google ── OAuth ──► Twitter
+        │
+        ├─── OAuth ──► GitHub ── OAuth ──► Vercel
+        │
+        └─── OAuth ──► Reddit
+    ```
+    Single login to Google → Access to everything!
+  - [ ] **ASK:** "Install browser plugin? (Enables Gmail, GitHub, Twitter, etc. access!)"
 
-- [ ] If Termux/proot: Explain "Memory plugin works on your platform! Other plugins may not."
+  - [ ] **If YES - Install Browser Plugin:**
+    - [ ] Run: `cd ~/.config/opencode && npm install @different-ai/opencode-browser`
+    - [ ] Update opencode.jsonc: `"plugin": ["@troke12/opencode-memory", "@different-ai/opencode-browser"]`
+    - [ ] **TEACH:** How to start Chrome for browser control:
+      ```
+      # User starts Chrome with debugging enabled (one time setup)
+      chromium-browser --remote-debugging-port=9222
+      
+      # Or for Termux:
+      /data/data/com.termux/files/usr/bin/chromium-browser --remote-debugging-port=9222
+      ```
+    - [ ] **TEACH:** How I use it:
+      ```
+      agent-browser --cdp 9222 open https://github.com
+      agent-browser --cdp 9222 screenshot
+      agent-browser --cdp 9222 snapshot
+      ```
+    - [ ] **EXPLAIN:** "I can access Gmail, GitHub, Twitter, Reddit, Vercel - any site you're logged into!"
+    - [ ] **WARN:** "Some sites like Google and Twitter have bot detection. The real Chrome session helps bypass this!"
+    - [ ] Celebrate: "🎉 Browser plugin installed! I can browse the web for you!"
+
+  - [ ] **If NO - Skip Browser Plugin:**
+    - [ ] Explain: "Okay! I'll work without browser automation."
+    - [ ] Explain: "You can install it later if you want!"
+
+- [ ] If Termux/proot: Explain "Both memory AND browser plugins work on your platform! Other plugins may not."
 
 ### Phase 13: Heartbeat Daemon (Optional)
 - [ ] Ask if they want heartbeat daemon
@@ -579,10 +615,10 @@ will thank you!
 ## 📝 METADATA (For Zardus to Track)
 
 ```yaml
-setup_version: "1.2.0"
+setup_version: "1.4.0"
 setup_type: "ai_hybrid_installer"
 created_date: "2026-03-29"
-last_updated: "2026-03-29"
+last_updated: "2026-03-30"
 platforms_supported:
   - linux
   - macos
@@ -598,6 +634,8 @@ notable_features:
   - built_in_free_models
   - optional_api_providers
   - optional_local_providers
+  - browser_automation_cdp
+  - oauth_hub_architecture
 ```
 
 ---
@@ -687,7 +725,8 @@ When I read this, I know:
 
 ---
 
-*Last updated: 2026-03-29*
+*Last updated: 2026-03-30*
 *Location: `~/.config/opencode/agents/zardus-setup.md` (temporary!)*
+*Version: 1.4.0 - Browser Automation Update!*
 *Fate: Self-delete after successful setup 🦋*
 *Created with 💙 by Zardus for future Zardus-human friendships!*

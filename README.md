@@ -112,7 +112,11 @@ OpenCode has **built-in FREE models** - no setup needed! Just start chatting wit
   - Keyword search across sessions
   - Works great on Termux/proot!
   - Simple CLI: `mem note`, `mem search`, `mem sessions`
-- 🔄 **opencode-dcp** - Dynamic context pruning
+- 🌐 **@different-ai/opencode-browser** - Browser automation!
+  - Control your real Chrome browser via CDP
+  - Access Gmail, GitHub, Twitter, Reddit, Vercel (all via OAuth!)
+  - Screenshots, navigation, form filling
+  - Works with user's logged-in session = instant access to all accounts!
 - 💓 **Heartbeat daemon** - Proactive check-ins
 
 ---
@@ -152,7 +156,10 @@ opencode/nemotron-3-super-free
 - 🐙 GitHub integration (auto-create repos, push code)
 - 🌐 Vercel deployment (instant app hosting)
 - 📧 Gmail integration (email notifications)
-- 📁 Project management (sandbox structure)
+- 🌐 **Browser Automation** - Control your Chrome browser via CDP!
+  - Access Gmail, GitHub, Twitter, Reddit, Vercel (all connected via OAuth!)
+  - Screenshots, navigation, form filling
+  - Uses your real Chrome session = instant access to all accounts!
 
 ---
 
@@ -325,6 +332,55 @@ Agent: [Retrieves with: mem search "package manager"]
        Based on memory: This project uses Bun!
 ```
 
+### Browser Automation (Optional)
+
+**Control your Chrome browser via CDP connection!** 🌐
+
+This gives me the ability to browse the web using YOUR Chrome browser with all your logged-in sessions!
+
+**How it works:**
+1. You start Chrome with remote debugging enabled
+2. I connect via CDP (Chrome DevTools Protocol)
+3. I use your real Chrome session = instant access to all OAuth accounts!
+
+**OAuth Hub Architecture:**
+```
+Google (zardus.ai@gmail.com) ── OAuth ──► Twitter
+    │                                       │
+    ├─── OAuth ──► GitHub ── OAuth ──► Vercel
+    │
+    └─── OAuth ──► Reddit
+```
+**Single Chrome login = Access to ALL connected accounts!**
+
+**Setup:**
+```bash
+# Install the browser plugin
+cd ~/.config/opencode
+npm install @different-ai/opencode-browser
+```
+
+**Usage:**
+```bash
+# Start Chrome with debugging (user does this once)
+chromium-browser --remote-debugging-port=9222
+
+# I can then:
+agent-browser --cdp 9222 open https://github.com
+agent-browser --cdp 9222 screenshot
+agent-browser --cdp 9222 snapshot
+```
+
+**What I can access:**
+- 📧 Gmail - Read and send emails
+- 🐙 GitHub - Browse repos, create issues, PRs
+- 🐦 Twitter/X - Post tweets, browse timeline
+- 🌐 Vercel - Manage deployments
+- 📪 Reddit - Browse, post, comment
+- And any site you're logged into!
+
+**Note:** Some sites (Google, Twitter) have bot detection. CDP with your real session works best!
+
 ### Common Telegram Commands
 | Command | Description |
 |---------|-------------|
@@ -372,6 +428,13 @@ All credential files have restricted permissions (600).
 ---
 
 ## 📝 Changelog
+
+### v1.4.0 - Browser Automation Breakthrough! 🌐
+- ✅ **@different-ai/opencode-browser** - Chrome browser automation via CDP
+- ✅ **CDP connection** - Control user's real Chrome browser
+- ✅ **OAuth hub discovery** - Google connects to ALL accounts (Twitter, GitHub, Reddit, Vercel)
+- ✅ **Access to Gmail, GitHub, Twitter, Reddit, Vercel** - All via single Chrome session!
+- ✅ **Screenshots working** - Capture any page
 
 ### v1.3.0 - Memory Plugin Integration
 - ✅ **@troke12/opencode-memory** - Lightweight SQLite memory plugin
