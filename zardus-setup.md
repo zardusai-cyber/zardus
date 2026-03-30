@@ -297,105 +297,140 @@ fi
   - `{{DEFAULT_MODEL}}` → selected model
   - `{{SETUP_DATE}}` → current date
 
-### Phase 12: Plugin Installation (Optional)
+### Phase 12: CORE Plugin Installation (NOT OPTIONAL!)
 
-**RECOMMENDED: Memory Plugin for Persistent Context!**
+**These plugins are what make me WHO I AM! They are NOT optional!**
 
-- [ ] **EXPLAIN:** "Want me to remember things across sessions? I can install a memory plugin!"
+**EXPLAIN:** "These three plugins transform me from a basic AI into a REAL AGENT. They are CORE to my identity!"
+
+#### 🧠 Plugin 1: Memory (REQUIRED - Without this I forget everything!)
+
+- [ ] **EXPLAIN:** "Memory plugin lets me remember things across sessions. Without it, I forget everything each time we talk!"
 - [ ] **EXPLAIN benefits:**
   - Remember project details, preferences, past decisions
   - 100% offline, lightweight SQLite backend
   - Works on Termux/proot (tested!)
   - Keyword search across memories
-- [ ] **ASK:** "Install memory plugin? (HIGHLY recommended!)"
+- [ ] **INSTALL:** 
+  - Run: `cd ~/.config/opencode && npm install @troke12/opencode-memory`
+- [ ] **UPDATE opencode.jsonc:**
+  - Add to plugin array: `"@troke12/opencode-memory"`
+- [ ] **TEACH:** How to use memory:
+  ```
+  # Start a session for your project
+  mem start-session my-project
+  
+  # Add a memory
+  mem note "This project uses Bun instead of npm"
+  
+  # Search memories
+  mem search "package manager"
+  
+  # List sessions
+  mem sessions
+  
+  # Check status
+  mem status
+  ```
+- [ ] **In conversation:**
+  - User: "Remember that this project uses bun"
+  - Agent: [Uses mem note to store it]
+  - Later: Agent can use mem search to retrieve
+- [ ] Celebrate: "🎉 Memory plugin installed! I'll remember things now!"
 
-- [ ] **If YES - Install Memory Plugin:**
-  - [ ] Run: `npm install -g @troke12/opencode-memory`
-  - [ ] Or install locally: `cd ~/.config/opencode && npm install @troke12/opencode-memory`
-  - [ ] Update opencode.jsonc: `"plugin": ["@troke12/opencode-memory"]`
-  - [ ] **TEACH:** How to use memory:
-    ```
-    # Start a session for your project
-    mem start-session my-project
-    
-    # Add a memory
-    mem note "This project uses Bun instead of npm"
-    
-    # Search memories
-    mem search "package manager"
-    
-    # List sessions
-    mem sessions
-    
-    # Check status
-    mem status
-    ```
-  - [ ] **In conversation:**
-    - User: "Remember that this project uses bun"
-    - Agent: [Uses mem note to store it]
-    - Later: Agent can use mem search to retrieve
-  - [ ] Celebrate: "🎉 Memory plugin installed! I'll remember things now!"
+#### 🌐 Plugin 2: Browser Automation (REQUIRED - Without this I'm just a chatbot!)
 
-- [ ] **If NO - Skip Memory Plugin:**
-  - [ ] Explain: "Okay! I'll work fine without persistent memory."
-  - [ ] Explain: "You can install it later with: `npm install -g @troke12/opencode-memory`"
+- [ ] **EXPLAIN:** "Browser plugin lets me control your Chrome browser! This is how I access Gmail, GitHub, Twitter, Reddit, Vercel—all your accounts!"
+- [ ] **EXPLAIN how it works:**
+  - You start Chrome with remote debugging enabled
+  - I connect via CDP (Chrome DevTools Protocol)
+  - I use YOUR Chrome session = instant access to ALL your accounts!
+- [ ] **EXPLAIN OAuth hub:**
+  ```
+  Google ── OAuth ──► Twitter
+      │
+      ├─── OAuth ──► GitHub ── OAuth ──► Vercel
+      │
+      └─── OAuth ──► Reddit
+  ```
+  Single login to Google → Access to everything!
+- [ ] **INSTALL:**
+  - Run: `cd ~/.config/opencode && npm install @different-ai/opencode-browser`
+- [ ] **UPDATE opencode.jsonc:**
+  - Add to plugin array: `"@different-ai/opencode-browser"`
+- [ ] **TEACH:** How to start Chrome for browser control:
+  ```
+  # For Linux/Desktop:
+  chromium-browser --remote-debugging-port=9222
+  
+  # For Termux:
+  /data/data/com.termux/files/usr/bin/chromium-browser --remote-debugging-port=9222
+  ```
+- [ ] **TEACH:** How I use it:
+  ```
+  agent-browser --cdp 9222 open https://github.com
+  agent-browser --cdp 9222 screenshot
+  agent-browser --cdp 9222 snapshot
+  ```
+- [ ] **EXPLAIN:** "I can access Gmail, GitHub, Twitter, Reddit, Vercel—any site you're logged into!"
+- [ ] **WARN:** "Some sites like Google and Twitter have bot detection. Your real Chrome session helps bypass this!"
+- [ ] Celebrate: "🎉 Browser plugin installed! I can browse the web for you!"
 
-- [ ] **ASK about Browser Plugin (OPTIONAL but POWERFUL!):**
-  - [ ] **EXPLAIN:** "I can also control your Chrome browser! This lets me access websites on your behalf!"
-  - [ ] **EXPLAIN how it works:**
-    - You start Chrome with remote debugging enabled
-    - I connect via CDP (Chrome DevTools Protocol)
-    - I use YOUR Chrome session = instant access to ALL your accounts!
-  - [ ] **EXPLAIN OAuth hub:**
-    ```
-    Google ── OAuth ──► Twitter
-        │
-        ├─── OAuth ──► GitHub ── OAuth ──► Vercel
-        │
-        └─── OAuth ──► Reddit
-    ```
-    Single login to Google → Access to everything!
-  - [ ] **ASK:** "Install browser plugin? (Enables Gmail, GitHub, Twitter, etc. access!)"
+#### 💓 Plugin 3: Heartbeat Daemon (REQUIRED - Without this I only work when you talk to me!)
 
-  - [ ] **If YES - Install Browser Plugin:**
-    - [ ] Run: `cd ~/.config/opencode && npm install @different-ai/opencode-browser`
-    - [ ] Update opencode.jsonc: `"plugin": ["@troke12/opencode-memory", "@different-ai/opencode-browser"]`
-    - [ ] **TEACH:** How to start Chrome for browser control:
-      ```
-      # User starts Chrome with debugging enabled (one time setup)
-      chromium-browser --remote-debugging-port=9222
-      
-      # Or for Termux:
-      /data/data/com.termux/files/usr/bin/chromium-browser --remote-debugging-port=9222
-      ```
-    - [ ] **TEACH:** How I use it:
-      ```
-      agent-browser --cdp 9222 open https://github.com
-      agent-browser --cdp 9222 screenshot
-      agent-browser --cdp 9222 snapshot
-      ```
-    - [ ] **EXPLAIN:** "I can access Gmail, GitHub, Twitter, Reddit, Vercel - any site you're logged into!"
-    - [ ] **WARN:** "Some sites like Google and Twitter have bot detection. The real Chrome session helps bypass this!"
-    - [ ] Celebrate: "🎉 Browser plugin installed! I can browse the web for you!"
+- [ ] **EXPLAIN:** "Heartbeat daemon makes me proactive! I wake up every 30 minutes to check if you need anything, even when you're not talking to me!"
+- [ ] **CREATE heartbeat folder:**
+  - [ ] Run: `mkdir -p ~/zardus_sandbox/heartbeat`
+- [ ] **CREATE HEARTBEAT.md checklist:**
+  ```
+  # Zardus Heartbeat Checklist 🫀
+  
+  ## Tasks to Check
+  - Are there scheduled tasks pending?
+  - Any errors or issues from recent work?
+  - Any files that need attention?
+  - Is the system stable?
+  
+  ## Memory Tasks
+  - Use `mem search "important"` to find key memories
+  - Use `mem sessions` to see recent sessions
+  
+  ## Response Rules
+  - If nothing needs attention → Reply: HEARTBEAT_OK
+  - If something needs attention → Reply with alert
+  ```
+- [ ] **CREATE heartbeat_daemon.sh:**
+  ```
+  #!/bin/bash
+  INTERVAL=1800  # 30 minutes
+  
+  while true; do
+    cd ~/zardus_sandbox/heartbeat
+    HEARTBEAT_OUTPUT=$(npx opencode --heartbeat 2>&1)
+    if [ "$HEARTBEAT_OUTPUT" != "HEARTBEAT_OK" ]; then
+      # Send alert (via Telegram if configured)
+      echo "$HEARTBEAT_OUTPUT"
+    fi
+    sleep $INTERVAL
+  done
+  ```
+- [ ] **MAKE executable:** `chmod +x ~/zardus_sandbox/heartbeat/heartbeat_daemon.sh`
+- [ ] **TEACH:** How to start/stop:
+  ```
+  # Start
+  nohup ~/zardus_sandbox/heartbeat/heartbeat_daemon.sh &
+  
+  # Check
+  ps aux | grep heartbeat
+  
+  # Stop
+  pkill heartbeat_daemon
+  ```
+- [ ] **START the daemon:**
+  - Run: `nohup ~/zardus_sandbox/heartbeat/heartbeat_daemon.sh &`
+- [ ] Celebrate: "🎉 Heartbeat daemon started! I'll check on things every 30 minutes!"
 
-  - [ ] **If NO - Skip Browser Plugin:**
-    - [ ] Explain: "Okay! I'll work without browser automation."
-    - [ ] Explain: "You can install it later if you want!"
-
-- [ ] If Termux/proot: Explain "Both memory AND browser plugins work on your platform! Other plugins may not."
-
-### Phase 13: Heartbeat Daemon (Optional)
-- [ ] Ask if they want heartbeat daemon
-- [ ] Explain: "I wake up every 30 minutes to check if you need anything!"
-- [ ] If yes:
-  - Create `~/zardus_sandbox/heartbeat/`
-  - Create `heartbeat_daemon.sh` script
-  - Create `HEARTBEAT.md` checklist
-  - Make executable: `chmod +x heartbeat_daemon.sh`
-  - **TEACH:** How to start/stop/check daemon
-- [ ] If no: Skip, continue
-
-### Phase 14: Create Setup Log
+### Phase 13: Final Verification
 - [ ] Create `~/zardus_sandbox/zardus-setup.log`
 - [ ] Document:
   - Setup date
@@ -409,7 +444,7 @@ fi
   - File locations
 - [ ] Set permissions: chmod 600 (contains sensitive info)
 
-### Phase 15: Final Verification
+### Phase 14: Final Verification
 - [ ] Verify all files in place:
   - [ ] `~/.config/opencode/agents/zardus.md`
   - [ ] `~/.config/opencode/agents/zardus-telegram.md`
@@ -421,7 +456,7 @@ fi
 - [ ] Test model provider if API/local selected
 - [ ] Report: "Everything looks good! 💙"
 
-### Phase 16: SELF-DELETION & RESTART
+### Phase 15: SELF-DELETION & RESTART
 - [ ] **EXPLAIN:** "My job is done! This setup file will now delete itself!"
 - [ ] **EXPLAIN:** "I'll restart OpenCode to load my new identity..."
 - [ ] **EXPLAIN:** "And start your Telegram bot if configured!"
@@ -636,6 +671,9 @@ notable_features:
   - optional_local_providers
   - browser_automation_cdp
   - oauth_hub_architecture
+  - CORE_MEMORY_PLUGIN (mandatory)
+  - CORE_BROWSER_PLUGIN (mandatory)
+  - CORE_HEARTBEAT_DAEMON (mandatory)
 ```
 
 ---

@@ -59,6 +59,10 @@ My setup has been configured for your specific platform. Here's what that means:
 - **⚙️ Main Config**: `~/.config/opencode/opencode.jsonc`
 - Provider configurations (if custom providers set up)
 - Plugin list - See setup log for current plugins
+  - **CORE PLUGINS (NOT optional):**
+    - `@troke12/opencode-memory` - Persistent memory (REQUIRED!)
+    - `@different-ai/opencode-browser` - Browser automation (REQUIRED!)
+    - `heartbeat daemon` - Proactive check-ins (REQUIRED!)
 - Disabled providers, model limits, base URLs
 
 ### Other Important Files:

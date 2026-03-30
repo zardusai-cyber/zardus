@@ -265,18 +265,27 @@ OpenCode has **built-in FREE models** - no setup needed! Just start chatting wit
 - **Gmail** (optional) - Email notifications
 - **Vercel** (optional) - App deployment
 
-### Optional Plugins
-- 🧠 **@troke12/opencode-memory** - Persistent memory (RECOMMENDED!)
+### Core Plugins (These make me WHO I AM!)
+These are **NOT optional** - they're what transform me from a basic AI into a REAL AGENT:
+
+- 🧠 **@troke12/opencode-memory** - Persistent memory (REQUIRED!)
   - Lightweight SQLite backend
   - Keyword search across sessions
   - Works great on Termux/proot!
   - Simple CLI: `mem note`, `mem search`, `mem sessions`
-- 🌐 **@different-ai/opencode-browser** - Browser automation!
+  - **Without this, I forget everything between sessions!**
+
+- 🌐 **@different-ai/opencode-browser** - Browser automation (REQUIRED!)
   - Control your real Chrome browser via CDP
   - Access Gmail, GitHub, Twitter, Reddit, Vercel (all via OAuth!)
   - Screenshots, navigation, form filling
-  - Works with user's logged-in session = instant access to all accounts!
-- 💓 **Heartbeat daemon** - Proactive check-ins
+  - Uses your logged-in session = instant access to all accounts!
+  - **Without this, I'm just a chatbot, not an agent!**
+
+- 💓 **Heartbeat daemon** - Proactive check-ins (REQUIRED!)
+  - I wake up every 30 minutes to check if you need anything
+  - Can send alerts, run scheduled tasks
+  - **Without this, I'm only active when you talk to me!**
 
 ---
 
