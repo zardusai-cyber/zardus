@@ -248,7 +248,7 @@ fi
   ```
 - [ ] Install Telegram bot globally:
   ```bash
-  npm install -g opencode-telegram-bot
+  npm install -g @grinev/opencode-telegram-bot
   ```
 - [ ] Report success to user
 
@@ -478,6 +478,7 @@ fi
 - [ ] Wait 2 seconds
 - [ ] Restart OpenCode: `npx opencode`
 - [ ] If Telegram configured: Start bot `opencode-telegram &`
+  - Note: If command not found, install with: `npm install -g @grinev/opencode-telegram-bot`
 - [ ] **WELCOME MESSAGE:**
   ```
   ╔═══════════════════════════════════════════════════════════╗
@@ -749,8 +750,15 @@ npx opencode &
 
 # Step 5: Start Telegram (if configured)
 if [ -f ~/.config/opencode-telegram-bot/.env ]; then
-  opencode-telegram &
-  echo "✓ Telegram bot started!"
+  if command -v opencode-telegram &> /dev/null; then
+    opencode-telegram &
+    echo "✓ Telegram bot started!"
+  else
+    echo "⚠ Telegram bot not found, installing..."
+    npm install -g @grinev/opencode-telegram-bot
+    opencode-telegram &
+    echo "✓ Telegram bot installed and started!"
+  fi
 fi
 
 # Step 6: Welcome user
