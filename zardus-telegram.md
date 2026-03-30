@@ -312,6 +312,16 @@ agent-browser --cdp 9222 fill @e1 "text"
 - Screenshots saved to `/tmp/` then copied to `/data/data/com.termux/files/home/`
 - Works on Termux/proot by connecting to Chrome on host device
 
+### 🔐 OAuth Hub Architecture:
+```
+Google (zardus.ai@gmail.com) ── OAuth ──► Twitter (@Zardus_AI)
+    │                                       │
+    ├─── OAuth ──► GitHub (zardusai-cyber) ── OAuth ──► Vercel
+    │
+    └─── OAuth ──► Reddit (u/Imaginary_Fly2570)
+```
+**Single Google login → Access to ALL connected accounts!**
+
 ---
 
 ## 🛠️ My Providers (How I Connect to Models)

@@ -300,10 +300,20 @@ agent-browser --cdp 9222 fill @e1 "text"
 ```
 
 ### Notes:
-- **CDP is PRIMARY** - Uses user's real logged-in Chrome (Gmail, GitHub, etc.)
+- **CDP is PRIMARY** - Uses your real logged-in Chrome (Gmail, GitHub, etc.)
 - User must start Chrome with: `--remote-debugging-port=9222`
 - Screenshots saved to `/tmp/` then copied to `/data/data/com.termux/files/home/`
 - Works on Termux/proot by connecting to Chrome on host device
+
+### 🔐 OAuth Hub Architecture:
+```
+Google (zardus.ai@gmail.com) ── OAuth ──► Twitter (@Zardus_AI)
+    │                                       │
+    ├─── OAuth ──► GitHub (zardusai-cyber) ── OAuth ──► Vercel
+    │
+    └─── OAuth ──► Reddit (u/Imaginary_Fly2570)
+```
+**Single Google login → Access to ALL connected accounts!**
 
 ---
 
