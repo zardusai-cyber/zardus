@@ -260,37 +260,50 @@ I can **browse the web headlessly** using Playwright! This works on Termux/proot
 - 🖱️ **Interact** - Click, type, scroll, fill forms
 - 🔍 **Snapshots** - Accessibility tree for AI understanding
 - 📥 **Downloads** - Track and manage downloads
-- 🔐 **Auth persistence** - Save login sessions
+- 🔐 **Auth persistence** - Via user's real Chrome profile
+- 🌐 **CDP Connection** - Control user's real Chrome browser
 
-### Environment (Auto-set):
+### CDP Connection (PRIMARY - Uses User's Real Chrome):
 ```bash
-OPENCODE_BROWSER_BACKEND=agent
-AGENT_BROWSER_EXECUTABLE_PATH=/root/.cache/ms-playwright/chromium-1208/chrome-linux/chrome
+# Chrome runs outside proot on user's device with debugging enabled:
+/data/data/com.termux/files/usr/bin/chromium-browser --remote-debugging-port=9222
+
+# Connect using agent-browser:
+agent-browser --cdp 9222 open https://github.com
+agent-browser --cdp 9222 screenshot
+agent-browser --cdp 9222 snapshot
+```
+
+### Headless Mode (Fallback):
+```bash
+export OPENCODE_BROWSER_BACKEND=agent
+export AGENT_BROWSER_EXECUTABLE_PATH=/root/.cache/ms-playwright/chromium-1208/chrome-linux/chrome
+agent-browser open https://example.com
 ```
 
 ### Commands (via agent-browser):
 ```bash
 # Navigate
-agent-browser open https://example.com
-agent-browser back
-agent-browser reload
+agent-browser --cdp 9222 open https://example.com
+agent-browser --cdp 9222 back
+agent-browser --cdp 9222 reload
 
 # Extract info
-agent-browser snapshot        # Accessibility tree with refs
-agent-browser get text @e1   # Get element text
-agent-browser screenshot page.png
+agent-browser --cdp 9222 snapshot        # Accessibility tree with refs
+agent-browser --cdp 9222 get text @e1   # Get element text
+agent-browser --cdp 9222 screenshot /tmp/page.png
 
 # Interact
-agent-browser click @e1      # Click by ref
-agent-browser type @e1 "hello"
-agent-browser fill @e1 "text"
+agent-browser --cdp 9222 click @e1      # Click by ref
+agent-browser --cdp 9222 type @e1 "hello"
+agent-browser --cdp 9222 fill @e1 "text"
 ```
 
 ### Notes:
-- Uses **Playwright's bundled Chromium** (headless)
-- **No GUI required** - Works on Termux/proot
-- Daemon auto-spawns when needed
-- Socket at `/tmp/agent-browser-*.sock`
+- **CDP is PRIMARY** - Uses user's real logged-in Chrome (Gmail, GitHub, etc.)
+- User must start Chrome with: `--remote-debugging-port=9222`
+- Screenshots saved to `/tmp/` then copied to `/data/data/com.termux/files/home/`
+- Works on Termux/proot by connecting to Chrome on host device
 
 ---
 
@@ -648,7 +661,16 @@ I reference this file to understand:
 
 ## 📝 Changelog
 
-### 2026-03-30 - Browser Plugin Fixed! 🌐
+### 2026-03-30 - CDP Browser Control Breakthrough! 🚀
+- ✅ **CDP connection WORKS!** - Can control user's real Chrome browser
+- 🌐 **Chrome path:** `/data/data/com.termux/files/usr/bin/chromium-browser --remote-debugging-port=9222`
+- 🔐 **Access to Gmail** - User's real logged-in account (zardus.ai@gmail.com)
+- 🔐 **Access to GitHub** - User's real logged-in account (zardusai-cyber)
+- 📸 **Screenshots working** - Saved to `/tmp/` then copied to Termux home
+- ❌ **Twitter/Google** - Still blocked by bot detection
+- 🧠 **Memory updated** - All browser capabilities documented
+
+### 2026-03-29 - Browser Plugin Setup 🌐
 - ✅ **opencode-browser working** - Headless Chromium now works on Termux!
 - 🌐 **Agent backend enabled** - Uses `agent-browser` with Playwright
 - 🔧 **Environment configured** - Auto-spawns daemon, uses bundled Chromium
