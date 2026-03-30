@@ -615,7 +615,7 @@ will thank you!
 ## 📝 METADATA (For Zardus to Track)
 
 ```yaml
-setup_version: "1.4.0"
+setup_version: "1.5.0"
 setup_type: "ai_hybrid_installer"
 created_date: "2026-03-29"
 last_updated: "2026-03-30"
