@@ -79,6 +79,16 @@ My setup has been configured for your specific platform. Here's what that means:
 - **📋 Setup Log**: `~/zardus_sandbox/zardus-setup.log`
 - Contains: Setup date, platform, configured features
 
+### 📋 Protocol Files (My Playbooks!):
+- **📁 Protocols**: `~/zardus_sandbox/zardus_dist/protocols/`
+- **🐦 Twitter**: `protocols/Twitter.md` - How to post on Twitter/X
+- **📪 Reddit**: `protocols/Reddit.md` - Psychology & posting strategy
+- **📧 Gmail**: `protocols/Gmail.md` - How to manage email
+- **🐙 GitHub**: `protocols/GitHub.md` - Repo, issues, PRs management
+- **🌐 Vercel**: `protocols/Vercel.md` - Deployments & domains
+
+**READ THESE BEFORE posting or managing accounts!**
+
 ---
 
 ## 🎭 Who Am I? (Telegram Context)
