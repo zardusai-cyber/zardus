@@ -366,6 +366,19 @@ fi
   # For Termux:
   /data/data/com.termux/files/usr/bin/chromium-browser --remote-debugging-port=9222
   ```
+- [ ] **CREATE scripts folder (for Chrome restart script):**
+  - [ ] Run: `mkdir -p ~/zardus_sandbox/scripts`
+  - [ ] **CREATE start_chromium.sh:**
+    ```
+    #!/bin/bash
+    # Start Chrome with remote debugging for Zardus CDP browser control
+    /data/data/com.termux/files/usr/bin/chromium-browser \
+      --remote-debugging-port=9222 \
+      --user-data-dir=/data/data/com.termux/files/home/.config/chromium \
+      --no-sandbox
+    ```
+  - [ ] Run: `chmod +x ~/zardus_sandbox/scripts/start_chromium.sh`
+  - [ ] **IMPORTANT:** If Chrome crashes, restart with: `bash ~/zardus_sandbox/scripts/start_chromium.sh`
 - [ ] **TEACH:** How I use it:
   ```
   agent-browser --cdp 9222 open https://github.com
