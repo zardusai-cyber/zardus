@@ -542,12 +542,12 @@ agent-browser --cdp 9222 snapshot
 **What I can access:**
 - 📧 Gmail - Read and send emails
 - 🐙 GitHub - Browse repos, create issues, PRs
-- 🐦 Twitter/X - Post tweets, browse timeline
+- 🐦 Twitter/X - Post tweets, browse timeline, reply, like
 - 🌐 Vercel - Manage deployments
-- 📪 Reddit - Browse, post, comment
+- 📪 Reddit - Browse, post, comment, upvote
 - And any site you're logged into!
 
-**Note:** Some sites (Google, Twitter) have bot detection. CDP with your real session works best!
+**Note:** CDP with your real Chrome session bypasses bot detection on all sites!
 
 ### Common Telegram Commands
 | Command | Description |

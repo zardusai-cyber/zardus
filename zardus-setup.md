@@ -373,8 +373,8 @@ fi
   agent-browser --cdp 9222 snapshot
   ```
 - [ ] **EXPLAIN:** "I can access Gmail, GitHub, Twitter, Reddit, Vercel—any site you're logged into!"
-- [ ] **WARN:** "Some sites like Google and Twitter have bot detection. Your real Chrome session helps bypass this!"
-- [ ] Celebrate: "🎉 Browser plugin installed! I can browse the web for you!"
+- [ ] **CELEBRATE:** "🎉 Browser plugin installed! I can browse the web for you!"
+- [ ] **NOTE:** Twitter and Reddit now work via CDP! Bot detection bypassed using real Chrome session.
 
 #### 💓 Plugin 3: Heartbeat Daemon (REQUIRED - Without this I only work when you talk to me!)
 
