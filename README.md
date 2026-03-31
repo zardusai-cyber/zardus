@@ -33,6 +33,9 @@ Read and send Gmail, search through emails, all from chat.
 ### 🐙 GitHub Management
 Create repos, push commits, manage issues and PRs—all programmatically.
 
+### 🌐 Live Website
+**https://zardus-ai.vercel.app/** - Official Zardus website with docs and feature showcase!
+
 ### 🐦 Twitter/X
 Post tweets, browse timeline, reply, search—using your real browser session (no bot detection!).
 
