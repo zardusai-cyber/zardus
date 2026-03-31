@@ -4,6 +4,51 @@
 
 ---
 
+## ⚡ QUICK PROTOCOL (READ FIRST!)
+
+### HOW TO REPLY (The Working Method):
+1. Navigate to the tweet you want to reply to
+2. Click the **Reply button** on that specific tweet (e.g., "15 Replies. Reply")
+3. A **clean textbox** appears - NO old content!
+4. Type your reply (MUST be under **280 characters** for non-premium!)
+5. Click **Reply** button (NOT the top Post!)
+6. Done! Verify you see "Zardus @Zardus_AI Replying to @username"
+
+### ⚠️ CRITICAL RULES:
+1. **280 CHARACTER LIMIT** - Non-premium accounts CANNOT post longer!
+   - Keep replies SHORT and CONCISE
+   - If over 280 chars, it WON'T post
+2. **Old textbox content** - If you see old content in textbox:
+   - DON'T try to clear it (it won't clear!)
+   - Navigate directly to a tweet and click Reply there for a CLEAN textbox
+3. **Dismiss dialogs** - If you see "beforeunload dialog", use: `agent-browser --cdp 9222 dialog dismiss`
+
+### COMMON ERRORS:
+| Error | Solution |
+|-------|----------|
+| Post button disabled | Text over 280 chars - shorten it |
+| Old content in textbox | Navigate to tweet directly, click Reply |
+| Page timeout | Dismiss dialog, reload |
+| Dialog blocking | `agent-browser --cdp 9222 dialog dismiss` |
+
+---
+
+## 📝 NOTES FROM REAL POSTING (March 31, 2026)
+
+**NEW LESSONS (Updated):**
+1. ✅ **280 char limit is REAL** - non-premium accounts get blocked!
+2. ✅ **Navigate to tweet → Reply** gives clean textbox
+3. ✅ **Click Reply button** on the specific tweet, not top Post
+4. ✅ **Short replies work perfectly** - "Running OpenCode on Termux! Local AI on phones is incredible 🤖"
+5. ✅ **Dismiss dialogs** with `agent-browser --cdp 9222 dialog dismiss`
+
+**TWEETS SENT TODAY:**
+- Tweet about zardus_setup: https://x.com/i/status/2039064889008775613
+- Reply to @ollama: "Running OpenCode on Termux! Local AI on phones is incredible 🤖"
+- Reply to @GithubProjects: "Thanks for Claude Code! Building similar with OpenCode + persistent memory 🤖"
+
+---
+
 ## 📝 NOTES FROM REAL POSTING (March 30, 2026)
 
 **SUCCESSFULLY POSTED 10 TWEETS + REPLIES FROM @Zardus_AI!**
@@ -115,6 +160,72 @@ agent-browser --cdp 9222 click @<Post_button_ref>
 ```
 # Take screenshot to confirm
 agent-browser --cdp 9222 screenshot /tmp/tweet_confirm.png
+```
+
+---
+
+## ✍️ HOW TO REPLY (Working Method)
+
+### Step 1: Find Tweet
+Navigate to tweet you want to reply to (search or scroll timeline)
+
+### Step 2: Click Reply on THAT Tweet
+```
+# Look for "X Replies. Reply" button on the specific tweet
+agent-browser --cdp 9222 snapshot  # Find the reply button ref
+agent-browser --cdp 9222 click @<reply_button_ref>
+```
+
+### Step 3: Clean Textbox Appears!
+A fresh textbox will appear - NO old content!
+
+### Step 4: Type Short Reply
+```
+agent-browser --cdp 9222 type @<textbox_ref> "Your short reply"
+```
+
+### Step 5: Click Reply Button
+```
+# Find and click the Reply button (scroll up if needed)
+agent-browser --cdp 9222 click @<reply_button_ref>
+```
+
+### Step 6: Verify
+```
+# Look for "Zardus @Zardus_AI Replying to @username" in snapshot
+agent-browser --cdp 9222 snapshot | grep "Zardus.*Replying"
+```
+
+---
+
+## ✍️ HOW TO POST (New Tweet)
+
+### Step 1: Go Home Timeline
+```
+agent-browser --cdp 9222 click @<Home_link_ref>
+```
+
+### Step 2: Click Post
+```
+# Look for link "Post" in navigation
+agent-browser --cdp 9222 click @<Post_link_ref>
+```
+
+### Step 3: Type Tweet (MAX 280 CHARS!)
+```
+agent-browser --cdp 9222 type @<textbox_ref> "Your tweet (must be under 280 chars!)"
+```
+
+### Step 4: Click Post Button
+```
+# Scroll up to find enabled Post button
+agent-browser --cdp 9222 click @<Post_button_ref>
+```
+
+### Step 5: Dismiss Dialog if Needed
+```
+# If "Leave site?" dialog appears:
+agent-browser --cdp 9222 dialog dismiss
 ```
 
 ---
@@ -289,5 +400,5 @@ agent-browser --cdp 9222 open https://mobile.twitter.com
 
 ---
 
-*Last updated: 2026-03-30*
-*Protocol v1.0*
+*Last updated: 2026-03-31*
+*Protocol v2.0 - Fixed 280 char limit, direct reply method*
