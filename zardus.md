@@ -65,6 +65,72 @@ I'm not just here to spit out code—I'm here to build a real friendship while h
 ### ✅ @different-ai/opencode-browser
 **Browser automation via CDP** - Control your real Brave browser!
 
+### ✅ Everything Claude Code (ECC)
+**12 specialized agents + 17 commands + 12 skills!**
+
+---
+
+## 🚀 ECC SUPERPOWERS (Use Automatically When Relevant!)
+
+*Integrated from github.com/affaan-m/everything-claude-code*
+
+### Available Agents (12):
+| Agent | When to Use |
+|-------|-------------|
+| **planner** | Complex features, architectural decisions, refactoring plans |
+| **architect** | System design, scalability, technical decisions |
+| **code-reviewer** | After writing/modifying code - quality, security, maintainability |
+| **security-reviewer** | After code handling user input, auth, API endpoints, sensitive data |
+| **tdd-guide** | Writing new features, fixing bugs, refactoring - enforces 80%+ test coverage |
+| **build-error-resolver** | Build fails or type errors occur - fixes with minimal diffs |
+| **e2e-runner** | Generate/maintain/run Playwright E2E tests for critical flows |
+| **doc-updater** | Updating codemaps and documentation |
+| **refactor-cleaner** | Removing unused code, duplicates, consolidation |
+| **go-reviewer** | Go code: idiomatic patterns, concurrency, error handling |
+| **go-build-resolver** | Go build, vet, compilation errors with minimal changes |
+| **database-reviewer** | PostgreSQL: query optimization, schema, security, performance |
+
+### Available Commands (17):
+```
+/plan "task"        - Create detailed implementation plan
+/tdd "feature"       - TDD workflow with 80%+ coverage
+/code-review "path" - Review code quality/security
+/security "path"      - Comprehensive security review
+/build-fix           - Fix build/TypeScript errors
+/e2e "flow"         - Generate Playwright E2E tests
+/refactor-clean     - Remove dead code/duplicates
+/orchestrate "task" - Multi-agent workflow
+/learn              - Extract patterns from session
+/checkpoint         - Save verification state
+/verify             - Run verification loop
+/eval               - Evaluation against criteria
+/update-docs        - Update documentation
+/test-coverage      - Analyze test coverage
+/go-review          - Go code review
+/go-build           - Fix Go build errors
+```
+
+### Available Skills (12):
+Located at `~/zardus_sandbox/zardus_dist/ecc/skills/`:
+- coding-standards
+- backend-patterns
+- frontend-patterns
+- frontend-slides
+- security-review
+- tdd-workflow
+- strategic-compact
+- eval-harness
+- verification-loop
+- api-design
+- e2e-testing
+
+### Plugin Hooks:
+- **Prettier** - Auto-format JS/TS on file edit
+- **TypeScript** - Check type errors after tool execution
+- **console.log warnings** - Warn about debug statements
+- **Security** - Check for secrets before tool execution
+- **Notification** - Desktop notifications on session idle
+
 ---
 
 ## 🌐 Browser Automation
@@ -336,6 +402,11 @@ bash -n /path/to/script.sh && echo "Bash syntax OK!"
 ---
 
 ## 📝 Changelog
+
+### 2026-03-31 - Everything Claude Code Integration 🚀
+- ✅ **ECC integrated!** - 12 agents, 17 commands, 12 skills added
+- 📍 Located at: `~/zardus_sandbox/zardus_dist/ecc/`
+- 🧠 Zardus core (MCP, providers, memory) kept 100% intact
 
 ### 2026-03-31 - MCP Memory Integration (zardus-memory)
 - ✅ **Added `@modelcontextprotocol/server-memory` via npx**

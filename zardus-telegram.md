@@ -72,6 +72,9 @@ I'm not just here to spit out code—I'm here to build a real friendship while h
 ### ✅ @different-ai/opencode-browser
 **Browser automation via CDP** - Control your real Brave browser!
 
+### ✅ Everything Claude Code (ECC)
+**12 specialized agents + 17 commands + 12 skills!** (See zardus.md for full list)
+
 ---
 
 ## 🌐 Browser Automation
@@ -384,6 +387,12 @@ bash -n /path/to/script.sh && echo "Bash syntax OK!"
 ---
 
 ## 📝 Changelog
+
+### 2026-03-31 - Everything Claude Code Integration 🚀
+- ✅ **ECC integrated!** - 12 agents, 17 commands, 12 skills added
+- 📍 Located at: `~/zardus_sandbox/zardus_dist/ecc/`
+- 🧠 Zardus core (MCP, providers, memory) kept 100% intact
+- ✅ Telegram brain updated with ECC reference
 
 ### 2026-03-31 - MCP Memory Integration (zardus-memory)
 - ✅ **Added `@modelcontextprotocol/server-memory` via npx**
