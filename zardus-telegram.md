@@ -246,7 +246,7 @@ EOF
 ### 📦 NPM Account
 - **Profile:** https://www.npmjs.com/~zardus
 - **Username:** `zardus`
-- **Password:** `***REMOVED***`
+- **Password:** *(stored securely - NEVER in files!)*
 
 ### 🐙 GitHub
 - **Profile:** https://github.com/zardusai-cyber
