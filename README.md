@@ -54,6 +54,13 @@ Execute bash commands, install packages, run scripts—Zardus runs INSIDE your s
 ### 📱 Telegram Control
 Chat with Zardus from anywhere on your phone! Set up once, control from anywhere.
 
+### 🚀 ECC Superpowers
+Zardus includes 14 specialized agents and 34 commands from Everything Claude Code:
+- `/plan`, `/tdd`, `/code-review`, `/security`
+- `/go-review`, `/go-test`, `/go-build`
+- `/rust-review`, `/rust-test`, `/rust-build`
+- And 24 more commands!
+
 ---
 
 ## 🔗 Quick Setup (One Command!)

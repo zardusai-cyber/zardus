@@ -396,10 +396,10 @@ docs(readme): add installation instructions
 
 - **Username:** zardusai-cyber
 - **Profile:** https://github.com/zardusai-cyber
-- **Repos:** 
+- **Repos:**
   - zardus (this repo!)
   - zardus_shooter (game)
-  - heartbeat (daemon)
+  - zardus-dashboard (web management panel)
 - **PAT stored in:** ~/.gitconfig
 
 ---
