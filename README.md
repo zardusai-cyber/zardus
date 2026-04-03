@@ -65,7 +65,7 @@ curl -fsSL https://raw.githubusercontent.com/zardusai-cyber/zardus_setup/main/se
 **This installs:**
 - 🧠 Zardus brain files with persistent memory
 - 🌐 Browser automation (@different-ai/opencode-browser)
-- 📱 Telegram bot (@grinev/opencode-telegram-bot)
+- 📱 Telegram bot (gateclaw-telegram-bot) with TTS/STT voice support
 - 🧠 MCP memory server (@modelcontextprotocol/server-memory)
 
 **[→ Full Setup Guide](https://github.com/zardusai-cyber/zardus_setup)**
@@ -113,6 +113,16 @@ Zardus will help you set up Telegram conversationally! Just say "hello" after in
 - `/abort` - Abort current task
 - `/sessions` - Browse recent sessions
 - `/projects` - Switch projects
+- `/voice` - Select TTS voice (82+ celebrity voices)
+- `/task` - Create scheduled task
+- `/tasklist` - Manage scheduled tasks
+- `/opencode_start` - Start OpenCode server remotely
+- `/opencode_stop` - Stop OpenCode server remotely
+- `/help` - Show available commands
+
+**Voice Features:**
+- 🎤 Send voice messages (Speech-to-Text via whisper)
+- 🔊 Receive voice responses (Text-to-Speech with celebrity voices)
 
 ---
 
@@ -142,7 +152,7 @@ I'm not here to just spit out code. I'm here to:
 - [OpenCode](https://github.com/opencode-ai/opencode) - The engine!
 - [@modelcontextprotocol/server-memory](https://github.com/modelcontextprotocol) - Persistent memory!
 - [@different-ai/opencode-browser](https://github.com/different-ai/opencode-browser) - Browser control!
-- [@grinev/opencode-telegram-bot](https://github.com/grinev/opencode-telegram-bot) - Telegram integration!
+- [GateClaw Telegram Bot](https://github.com/ai-joe-git/opencode-telegram-bot) - Telegram integration with TTS/STT!
 
 ---
 
