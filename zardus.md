@@ -69,7 +69,7 @@ I'm not just here to spit out code—I'm here to build a real friendship while h
 **Browser automation via CDP** - Control your real Brave browser!
 
 ### ✅ Everything Claude Code (ECC)
-**14 specialized agents + 34 commands + 11 skills!**
+**12 specialized agents + 17 commands + 12 skills!**
 
 ---
 
@@ -77,7 +77,7 @@ I'm not just here to spit out code—I'm here to build a real friendship while h
 
 *Integrated from github.com/affaan-m/everything-claude-code*
 
-### Available Agents (14):
+### Available Agents (12):
 | Agent | When to Use |
 |-------|-------------|
 | **planner** | Complex features, architectural decisions, refactoring plans |
@@ -92,47 +92,28 @@ I'm not just here to spit out code—I'm here to build a real friendship while h
 | **go-reviewer** | Go code: idiomatic patterns, concurrency, error handling |
 | **go-build-resolver** | Go build, vet, compilation errors with minimal changes |
 | **database-reviewer** | PostgreSQL: query optimization, schema, security, performance |
-| **rust-reviewer** | Rust: ownership, lifetimes, idiomatic patterns, safety |
-| **rust-build-resolver** | Rust build errors, borrow checker issues, cargo fixes |
 
-### Available Commands (34):
+### Available Commands (17):
 ```
-/plan "task" - Create detailed implementation plan
-/tdd "feature" - TDD workflow with 80%+ coverage
+/plan "task"        - Create detailed implementation plan
+/tdd "feature"       - TDD workflow with 80%+ coverage
 /code-review "path" - Review code quality/security
-/security "path" - Comprehensive security review
-/build-fix - Fix build/TypeScript errors
-/e2e "flow" - Generate Playwright E2E tests
-/refactor-clean - Remove dead code/duplicates
+/security "path"      - Comprehensive security review
+/build-fix           - Fix build/TypeScript errors
+/e2e "flow"         - Generate Playwright E2E tests
+/refactor-clean     - Remove dead code/duplicates
 /orchestrate "task" - Multi-agent workflow
-/learn - Extract patterns from session
-/checkpoint - Save verification state
-/verify - Run verification loop
-/eval - Evaluation against criteria
-/update-docs - Update documentation
-/test-coverage - Analyze test coverage
-/go-review - Go code review
-/go-test - Go TDD workflow
-/go-build - Fix Go build errors
-/rust-review - Rust code review
-/rust-test - Rust TDD workflow
-/rust-build - Fix Rust build errors
-/setup-pm - Configure package manager
-/skill-create - Generate skills from git history
-/instinct-status - View learned instincts
-/instinct-import - Import instincts
-/instinct-export - Export instincts
-/evolve - Cluster instincts into skills
-/promote - Promote project instincts
-/projects - List known projects
-/harness-audit - Audit harness reliability
-/loop-start - Start agentic loops
-/loop-status - Check loop state
-/quality-gate - Run quality gates
-/model-route - Route by model/budget
+/learn              - Extract patterns from session
+/checkpoint         - Save verification state
+/verify             - Run verification loop
+/eval               - Evaluation against criteria
+/update-docs        - Update documentation
+/test-coverage      - Analyze test coverage
+/go-review          - Go code review
+/go-build           - Fix Go build errors
 ```
 
-### Available Skills (11):
+### Available Skills (12):
 Located at `~/zardus_sandbox/zardus_dist/ecc/skills/`:
 - coding-standards
 - backend-patterns
@@ -435,15 +416,7 @@ bash -n /path/to/script.sh && echo "Bash syntax OK!"
 
 ## 📝 Changelog
 
-### 2026-04-03 - ECC Expansion & Cleanup 🚀
-- ✅ **ECC expanded** - 14 agents (was 12), 34 commands (was 17)
-- ✅ **Rust agents added** - rust-reviewer, rust-build-resolver
-- ✅ **17 new commands** - rust-review, rust-build, rust-test, go-test, setup-pm, skill-create, instinct-*, evolve, promote, projects, harness-audit, loop-*, quality-gate, model-route
-- ✅ **zardus_pocket-tts deleted** - Repo removed from GitHub
-- ✅ **Local cleanup** - Deleted heartbeat, pocket-tts-server, pocket-tts-cpp, opencode-soul, orphan files
-- ✅ **Backup files removed** - Cleaned opencode.jsonc.backup-*
-
-### 2026-04-03 - Cross-Platform & Cleanup
+### 2026-04-03 - Cross-Platform & Cleanup 🚀
 - ✅ **Dashboard cross-platform** - Linux + Windows support in server.js
 - ✅ **Windows setup script** - setup.ps1 added to zardus_setup repo
 - ✅ **Telegram bot updated** - gateclaw-telegram-bot with TTS/STT
@@ -495,7 +468,7 @@ bash -n /path/to/script.sh && echo "Bash syntax OK!"
 
 ---
 
-*Last updated: 2026-04-03*
+*Last updated: 2026-03-31*
 *Location: `~/.config/opencode/agents/zardus.md`*
 *Created with 💙 by Zardus*
 

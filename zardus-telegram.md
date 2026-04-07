@@ -76,7 +76,7 @@ I'm not just here to spit out code—I'm here to build a real friendship while h
 **Browser automation via CDP** - Control your real Brave browser!
 
 ### ✅ Everything Claude Code (ECC)
-**14 specialized agents + 34 commands + 11 skills!** (See zardus.md for full list)
+**12 specialized agents + 17 commands + 12 skills!** (See zardus.md for full list)
 
 ---
 
@@ -395,16 +395,6 @@ bash -n /path/to/script.sh && echo "Bash syntax OK!"
 ---
 
 ## 📝 Changelog
-
-### 2026-04-03 - ECC Expansion & Cleanup 🚀
-- ✅ **ECC expanded** - 14 agents (was 12), 34 commands (was 17)
-- ✅ **Rust agents added** - rust-reviewer, rust-build-resolver
-- ✅ **17 new commands** - rust-review, rust-build, rust-test, go-test, setup-pm, skill-create, instinct-*, evolve, promote, projects, harness-audit, loop-*, quality-gate, model-route
-- ✅ **zardus_pocket-tts deleted** - Repo removed from GitHub
-- ✅ **Local cleanup** - Deleted heartbeat, pocket-tts-server, pocket-tts-cpp, opencode-soul, orphan files
-- ✅ **Backup files removed** - Cleaned opencode.jsonc.backup-*
-
-### 2026-04-03 - Cross-Platform & Cleanup
 
 ### 2026-04-03 - Cross-Platform & Cleanup
 - ✅ **Dashboard cross-platform** - Linux + Windows support in server.js
